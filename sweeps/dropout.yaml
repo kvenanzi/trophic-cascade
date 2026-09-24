@@ -1,0 +1,16 @@
+# W&B Sweep for Part B (§4.4 of the write-up): three training regimes x six seeds = 18 runs.
+# The token budget is filled in from the timing run before registration and is not
+# changed afterwards; scripts/06_sweep.py --create --tokens <budget> writes it in.
+# Run: notebooks/02_dropout_sweep.ipynb (Colab A100).
+name: dropout
+method: grid
+metric:
+  name: final/self_repair_pooled
+  goal: maximize
+parameters:
+  arm:
+    values: [none, standard, drophead]
+  seed:
+    values: [0, 1, 2, 3, 4, 5]
+  tokens:
+    value: 0                          # replaced at registration by the timed budget

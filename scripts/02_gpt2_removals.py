@@ -123,7 +123,22 @@ def main():
         "H1/ln_share": h1["ln_share"][0],
         "H2/n_keystones": int(df.keystone.sum()),
     })
-    run.log({"keystones": wandb.Table(dataframe=df)})
+    import matplotlib.pyplot as plt
+    from trophic import plots
+    ktable = wandb.Table(dataframe=df)
+    figs = {
+        "charts/interaction_matrix": plots.interaction_heatmap(
+            inter, L, H, "GPT-2 small: change in each head's direct effect when one head is removed"),
+        "charts/name_mover_removal": plots.release_bars(
+            base_de, h1["delta_de"], CLASSES, title="Name movers removed: direct effect before and after"),
+        "charts/keystones": plots.keystone_scatter(df, "Community importance of every head (Power et al 1996)"),
+    }
+    run.log({"keystones": ktable,
+             "charts/keystone_scatter": wandb.plot.scatter(ktable, "abundance", "effect_share",
+                                                           title="Abundance vs share of trait lost"),
+             **{k: wandb.Image(f) for k, f in figs.items()}})
+    for f in figs.values():
+        plt.close(f)
     art = wandb.Artifact("gpt2-removals", type="results")
     for f in ("summary.json", "keystones.csv", "removals.npz"):
         art.add_file(str(OUT / f))
