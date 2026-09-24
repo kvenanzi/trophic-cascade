@@ -17,7 +17,16 @@ def load(name: str, checkpoint: int | None = None, device: str | None = None,
     from transformer_lens import HookedTransformer
     torch.set_grad_enabled(False)
     device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-    kw = {"checkpoint_value": checkpoint} if checkpoint is not None else {}
+    kw = {}
+    if checkpoint is not None:
+        # TransformerLens 3.9 passes token=os.environ.get("HF_TOKEN", "") for Pythia
+        # checkpoints, and an empty token becomes the illegal header "Bearer ". Download the
+        # checkpoint with transformers (which omits a missing token) and hand it over; the
+        # architecture config is the same at every checkpoint.
+        from transformers import AutoModelForCausalLM
+        kw["hf_model"] = AutoModelForCausalLM.from_pretrained(
+            f"EleutherAI/{name}" if "/" not in name else name, revision=f"step{checkpoint}",
+            dtype=load_dtype or dtype)
     model = HookedTransformer.from_pretrained(name, device=device, dtype=load_dtype or dtype, **kw)
     if load_dtype is not None and load_dtype != dtype:
         model = model.to(dtype)
