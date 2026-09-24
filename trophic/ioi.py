@@ -124,3 +124,12 @@ def make_prompts(n_per_template: int, vocab: dict[str, list[str]], seed: int = 0
             abc.append(Prompt(ti, "ABC", text_abc, " " + a2, " " + c2,
                               (b2, a2, c2) if order == "BABA" else (a2, b2, c2), place, obj))
     return ioi, abc
+
+
+N_PER_TEMPLATE = 40
+SEED = 0
+
+
+def standard_prompts() -> tuple[list[Prompt], list[Prompt]]:
+    """The 600 IOI prompts and their ABC twins used throughout the write-up (§3.1)."""
+    return make_prompts(N_PER_TEMPLATE, single_token_vocab(), seed=SEED)
