@@ -1,0 +1,46 @@
+[project]
+name = "trophic-cascade"
+version = "0.1.0"
+requires-python = ">=3.12"
+# Lower bounds are deliberately loose so `pip install -e .` on Colab keeps its
+# preinstalled numpy/pandas/torch; uv.lock pins exact versions for local runs.
+# transformer-lens is capped below 4.0: 4.0 removed HookedTransformer, which every
+# measurement here is written against.
+dependencies = [
+    "datasets>=3.0",
+    "matplotlib>=3.9",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "pyyaml>=6.0",
+    "torch>=2.4",
+    "transformer-lens>=2.16,<4.0",
+    "transformers>=4.44",
+    "wandb>=0.19",
+    "wandb-workspaces>=0.4.11",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["trophic"]
+
+# Local GPU is a GTX 1070 (Pascal, sm_61). PyTorch's cu126 wheels still include
+# Pascal kernels; the newer cu128+ wheels dropped them. Colab ignores this block
+# (pip doesn't read tool.uv) and keeps its preinstalled torch.
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::DeprecationWarning"]

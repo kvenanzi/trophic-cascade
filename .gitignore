@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Experiment tracking and training outputs
+wandb/
+outputs/
+models/
+artifacts/
+data/
