@@ -67,9 +67,12 @@ def main():
                  for s in seeds if (s, a) in final} for a in arms}
     out = {"n_runs": len(runs), "seeds": seeds, "missing": missing, "per_arm": table}
     for metric in ("self_repair_pooled", "self_repair_mean", "val_loss"):
-        out[metric] = {f"{a}-{b}": paired({s: final[(s, a)][metric] - final[(s, b)][metric]
-                                           for s in seeds if (s, a) in final and (s, b) in final})
-                       for a, b in CONTRASTS}
+        out[metric] = {}
+        for a, b in CONTRASTS:
+            diffs = {s: final[(s, a)][metric] - final[(s, b)][metric]
+                     for s in seeds if (s, a) in final and (s, b) in final}
+            if diffs:                          # a contrast with no complete pair is left out
+                out[metric][f"{a}-{b}"] = paired(diffs)
 
     # H6c: matched validation loss against the paired no-dropout run's checkpoints
     matched = {}
@@ -83,7 +86,8 @@ def main():
             j = int(np.argmin([abs(h["val_loss"] - vl) for h in ref]))
             diffs[s] = final[(s, arm)]["self_repair_pooled"] - ref[j]["self_repair_pooled"]
             detail[s] = {"val_loss": vl, "none_step": ref[j]["step"], "none_val_loss": ref[j]["val_loss"]}
-        matched[f"{arm}-none"] = {**paired(diffs), "matched": detail}
+        if diffs:
+            matched[f"{arm}-none"] = {**paired(diffs), "matched": detail}
     out["H6c_matched_val_loss"] = matched
 
     # Development: pooled self-repair at each measurement point, mean over seeds per arm
