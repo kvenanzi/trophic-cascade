@@ -217,27 +217,29 @@ def part_b(data: dict):
     s = json.loads(p.read_text())
     colours = {"none": GREY, "standard": BLUE, "drophead": ORANGE}
     fig, ax = plt.subplots(figsize=(7, 3.8))
+    names = {"none": "no dropout", "standard": "standard dropout", "drophead": "DropHead"}
     for arm, dev in s["development"].items():
         ax.plot(np.array(dev["tokens"]) / 1e6, dev["pooled_mean"], color=colours[arm], marker="o", ms=5,
-                mec=SURFACE, label=arm)
+                mec=SURFACE, label=names[arm])
     ax.set_xlabel("training tokens (millions)")
     ax.set_ylabel("pooled self-repair fraction\n(mean of six seeds)")
     ax.legend(fontsize=8.5)
     save(fig, "partb_development.png")
     fig, ax = plt.subplots(figsize=(7, 3.8))
-    for i, arm in enumerate(["none", "standard", "drophead"]):
+    arms = ["none", "standard", "drophead"]
+    jit = lambda seed: (int(seed) - 2.5) * 0.04
+    for i, arm in enumerate(arms):
         vals = s["per_arm"][arm]
         for seed, v in vals.items():
-            ax.scatter(i + (int(seed) - 2.5) * 0.04, v["self_repair_pooled"], color=colours[arm], s=36,
+            ax.scatter(i + jit(seed), v["self_repair_pooled"], color=colours[arm], s=36,
                        edgecolor=SURFACE, zorder=3)
         ax.hlines(np.mean([v["self_repair_pooled"] for v in vals.values()]), i - 0.25, i + 0.25,
                   color=INK, lw=1.6)
     for seed in s["seeds"]:
-        ys = [s["per_arm"][a].get(str(seed), s["per_arm"][a].get(seed, {})).get("self_repair_pooled")
-              for a in ("none", "standard", "drophead")]
+        ys = [s["per_arm"][a].get(str(seed), {}).get("self_repair_pooled") for a in arms]
         if None not in ys:
-            ax.plot([0, 1, 2], ys, color=GRID, lw=1, zorder=1)
-    ax.set_xticks([0, 1, 2], ["none", "standard dropout", "DropHead"])
+            ax.plot([i + jit(seed) for i in range(3)], ys, color=GRID, lw=1, zorder=1)
+    ax.set_xticks([0, 1, 2], ["no dropout", "standard dropout", "DropHead"])
     ax.set_ylabel("final pooled self-repair fraction")
     ax.grid(axis="x", visible=False)
     save(fig, "partb_final.png")

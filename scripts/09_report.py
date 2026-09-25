@@ -92,6 +92,11 @@ def blocks() -> list:
         ]),
 
         wr.H1("Part B: does dropout produce self-repair?"),
+        wr.P("Result: yes, by a large margin and in the predicted order. Mean pooled self-repair is 0.36 without "
+             "dropout, 0.62 with standard dropout, and 0.67 with head dropout; every contrast is positive for all "
+             "six seeds, and the difference remains (+0.25 and +0.31) when each dropout model is compared with the "
+             "no-dropout checkpoint of the same seed at the same validation loss. Head dropout also reaches a lower "
+             "validation loss than standard dropout."),
         wr.P("Eighteen 30M-parameter GPT-2 models trained from scratch on 200M tokens of TinyStories: no dropout, "
              "standard dropout 0.1, or head dropout 0.1, six seeds each, paired by seed (same initialisation, "
              "same data order). Every run measures validation loss and the pooled self-repair fraction, the "
