@@ -136,6 +136,137 @@ At each point, 256 held-out sequences (65,536 token positions) are run intact an
 
 The unit is the seed. For each contrast (standard − none, drophead − standard, drophead − none) the six within-seed differences give a mean, a 95% t interval, and a sign count; with six units, six of six positive is the only sign count with two-sided p < 0.05 under a sign test, and five of six is recorded as consistent but not significant on its own. Validation loss is reported for every arm, because dropout changes it.
 
+## 5. Results
+
+Part A was run twice: on a local GTX 1070 (W&B runs tagged `local-gtx1070`) and on a Colab A100 (the reference set, `notebooks/01_part_a.ipynb`). The two agree to the fifth decimal place on every quantity reported below (baseline logit difference 3.645846 against 3.645847; name-mover compensation 1.041904 against 1.041904; identical keystone lists), and the prompt file was byte-identical, so the numbers are properties of the models and prompts rather than of the hardware. Pythia-1.4B and the checkpoints were run on the A100 only.[^oom]
+
+### 5.1 Baseline
+
+GPT-2 small prefers the IO to the subject on 99.0% of the 600 prompts, with mean logit difference 3.65; Wang et al report 3.56 and 99.3% on their distribution. The twelve heads with the largest absolute direct effect are, in order, 9.9 (+2.86), 10.7 (−2.06), 9.6 (+1.22), 11.10 (−1.02), 10.0 (+0.68), 10.10 (+0.54), 10.6 (+0.36), 11.2 (−0.31), 8.10 (+0.28), 10.1 (+0.23), 7.9 (+0.20), and 7.3 (+0.10): the three name movers, both negative name movers, four of the backup name movers, and three S-inhibition heads. The three heads of largest positive direct effect, which H4 selects automatically in every other model, are exactly Wang et al's name movers.
+
+### 5.2 Mesopredator release (H1)
+
+Mean-ablating the three name movers removes a summed direct effect of 4.76 and *raises* the mean logit difference from 3.65 to 3.85. Compensation is 1.042 (95% CI 1.023–1.061): the remaining heads restore 104% of what was removed. Resample ablation, which substitutes the paired ABC prompt's output rather than the mean, gives 0.997 (0.978–1.016). The two methods disagree about whether the model over- or exactly compensates; both put compensation at approximately 100%.
+
+![Direct effect of the ten most-changed heads, before and after the name movers are removed](figures/name_mover_removal.png)
+
+*Figure 1. GPT-2 small: direct effect on the logit difference of the ten heads whose direct effect changed most when the name movers 9.9, 9.6, and 10.0 were mean-ablated together, intact (grey) and after the removal (blue). n = 600 prompts. Data: `figures/data.json`.*
+
+The offset, the 4.96 logit-difference units by which the logit difference exceeds what the removal alone would leave, is carried by the components H1 named:
+
+| Component | Change in direct effect | Share of offset (95% CI) |
+|---|---|---|
+| eight backup name movers | +2.82 | 0.569 (0.558–0.580) |
+| two negative name movers | +1.86 | 0.375 (0.366–0.384) |
+| all other heads | +0.31 | 0.063 (0.057–0.070) |
+| MLP layers | −0.04 | −0.008 (−0.013 to −0.003) |
+| backup and negative together | +4.69 | **0.945 (0.937–0.952)** |
+
+The largest single response is 10.7, which goes from −2.06 to +0.07: with the name movers gone, the head that suppresses what the name movers predict has nothing to suppress, which is the copy-suppression account of [McDougall et al 2024](#references). The backup name movers 10.10, 10.2, 10.6, 11.2, and 10.1 each increase by 0.26 to 0.81 (Figure 1). The response runs almost entirely through the heads' outputs rather than through normalisation: the final LayerNorm scale falls by 7.4%, and that change accounts for 5.8% of the offset (5.6–6.1%), well below the "possibly 30%" [Rushing & Nanda 2024](#references) estimate for single heads on the pretraining distribution. The MLP layers act slightly against the compensation, the opposite direction to the erasure layers of McGrath et al, whose reduced suppression added to it. H1 is confirmed on both clauses.
+
+### 5.3 Keystones (H2)
+
+Removing each of the 144 heads alone gives each head's total effect on the logit difference, and with its abundance, its community importance (Figure 2).
+
+![Abundance against share of the logit difference lost when each head is removed](figures/keystones.png)
+
+*Figure 2. Every head of GPT-2 small: abundance (share of the summed absolute direct effect, log scale) against the share of the mean logit difference lost when the head alone is mean-ablated. The dashed curves are CI = ±1, an effect in proportion to abundance. Keystones and the heads with abundance above 0.05 are labelled. n = 600 prompts. Data: `figures/data.json`.*
+
+Fourteen heads meet the registered criteria (removal changes the logit difference by at least 5% and |CI| ≥ 2):
+
+| Head | Class | Abundance | Share of trait lost | CI |
+|---|---|---|---|---|
+| 8.6 | S-inhibition | 0.0049 | 0.366 | 74.9 |
+| 8.10 | S-inhibition | 0.0256 | 0.291 | 11.4 |
+| 5.5 | induction | 0.0001 | 0.279 | 2,973 |
+| 7.9 | S-inhibition | 0.0189 | 0.275 | 14.6 |
+| 6.9 | induction | 0.0001 | 0.152 | 1,160 |
+| 3.0 | duplicate-token | < 0.0001 | 0.144 | 145,070 |
+| 7.3 | S-inhibition | 0.0092 | 0.128 | 13.9 |
+| 5.9 | induction | 0.0001 | 0.102 | 1,380 |
+| 9.7 | backup name mover | 0.0070 | 0.094 | 13.5 |
+| 6.0 | – | 0.0017 | 0.052 | 29.7 |
+| 5.10 | – | 0.0004 | −0.061 | −149 |
+| 11.2 | backup name mover | 0.0291 | −0.091 | −3.1 |
+| 11.10 | negative name mover | 0.0947 | −0.287 | −3.0 |
+| 10.7 | negative name mover | 0.1913 | −0.461 | −2.4 |
+
+All four S-inhibition heads are keystones, as are three of the four induction heads and one of the three duplicate-token heads; the first clause of H2 is confirmed. None of the name movers is a keystone. But the clause that the most abundant heads have CI below 1 holds for 9.9 (CI 0.34) and 9.6 (−1.33), not for 10.0 (1.51), whose removal costs 9.5% of the trait against an abundance of 6.3%. H2 is confirmed except for that clause. The CI values of heads with near-zero direct effect, such as 145,070 for 3.0, are large because the denominator is small and carry no information beyond "large"; the ranking by share of the trait lost is the informative quantity for those heads.
+
+Two results were not predicted. First, four heads have *negative* keystone values: removing 10.7 raises the logit difference by 46%, 11.10 by 29%, 11.2 by 9%, and 5.10 by 6%. [Power et al 1996](#references) anticipated this sign ("negative values occur when a community characteristic increases after removal of a species, as would be the case if … the first species were a consumer"): these heads consume the quantity being measured, and are the closest analogue in the model to a predator in the literal sense. Second, 6.0 and 5.10 are keystones and belong to none of Wang et al's classes; both sit upstream of the S-inhibition heads, and neither was examined further.
+
+### 5.4 The interaction matrix
+
+The 144 single-head removals give the change in every head's direct effect when every other head is removed. Of the 20,736 ordered pairs, 115 have an interaction strength above 0.05 in absolute value. Every responding head is in layers 9–11 (36 in layer 9, 53 in layer 10, 26 in layer 11), while the removed heads that produce those responses are in every layer from 0 to 10 except 1 and 2 (Figure 3). Only two of the 115 have the responding head at or before the removed head's layer, which can happen only through the final LayerNorm scale.
+
+![Interaction-strength matrix: every removed head against the responding heads of layers 9 to 11](figures/interaction_matrix.png)
+
+*Figure 3. GPT-2 small: the change in the direct effect of each head in layers 9–11 (columns) when each of the 144 heads is removed alone (rows). Red is an increase, blue a decrease. Heads in layers 0–8 are omitted as columns because none of them responds by more than 0.05. n = 600 prompts. Data: `figures/data.json` (the fifteen largest entries).*
+
+The largest entries are the chain the circuit predicts: removing 9.9 raises 10.7 by 1.23; removing S-inhibition head 8.6 lowers 9.9 by 1.21 and raises 10.7 by 0.70; removing induction head 5.5 lowers 9.9 by 0.63; removing 10.7 lowers 11.10 by 0.59. Rows for the S-inhibition and induction heads have the same pattern of blue and red cells (lower the name movers, raise the negative name movers), which is what a two-step cascade looks like: the effect on the negative name movers passes through the name movers. With the final LayerNorm scale held at its intact value, 98.8% of the summed absolute interaction strength remains, so these are changes in what the heads write, not in how their output is normalised.
+
+### 5.5 Attenuation (H3)
+
+![Mean absolute log response ratio of activity for the next level and the level after it](figures/attenuation.png)
+
+*Figure 4. GPT-2 small: mean absolute log response ratio of head activity at the next circuit level (blue) and the level after it (orange) when each level is removed as a set. n = 600 prompts. Data: `figures/data.json`.*
+
+| Level removed | Next level | \|LRR\| | Level after next | \|LRR\| | Difference (95% CI) | Logit difference after removal |
+|---|---|---|---|---|---|---|
+| L1 previous-token | L2 duplicate + induction | 0.103 | L3 S-inhibition | 0.026 | +0.077 (0.073–0.081) | 3.39 |
+| L2 duplicate + induction | L3 S-inhibition | 0.487 | L4 name mover | 0.343 | +0.144 (0.127–0.161) | 0.31 |
+| L3 S-inhibition | L4 name mover | 0.237 | L5 negative name mover | 0.211 | +0.026 (0.016–0.040) | 0.40 |
+
+The response is larger one level down than two levels down in all three cases, and the bootstrap interval excludes zero in all three; H3 is confirmed. The size of the attenuation differs. Removing the previous-token heads changes the induction heads (LRR −0.31 for 5.8 and −0.17 for 6.9) and leaves the S-inhibition heads within 5%, and it costs only 7% of the logit difference. The third comparison is close: removing the S-inhibition heads lowers the activity of 9.9 and 9.6 by 30% (LRR −0.36 and −0.35) and leaves 10.0 unchanged, while 10.7 and 11.10 fall by 21% and 17%. Nearly every activity response is a decrease: removing a level lowers the output of the heads downstream of it. The exceptions are small and all follow the removal of the previous-token heads (induction head 5.9 +8%, S-inhibition heads 7.9 and 8.10 +2% and +1%). No level shows release in the sense of H1; in this circuit, release is a property of the heads that read the name movers' output, not of the heads that feed them.
+
+### 5.6 Other models (H4)
+
+![Compensation of the top three heads in five models](figures/compensation_by_model.png)
+
+*Figure 5. Compensation (1 − TE/DE) when the three heads with the largest positive direct effect are mean-ablated together, with 95% bootstrap intervals. 0 is no compensation; 1 is full compensation. n = 600 prompts per model. Data: `figures/data.json`.*
+
+| Model | IO preferred | Mean logit difference | Top three heads | DE removed | TE | Compensation (95% CI) | Share through LayerNorm |
+|---|---|---|---|---|---|---|---|
+| GPT-2 small | 0.990 | 3.65 | 9.9, 9.6, 10.0 | 4.76 | −0.20 | 1.042 (1.023–1.061) | 0.058 |
+| GPT-2 medium | 1.000 | 3.87 | 19.1, 15.14, 20.6 | 1.68 | 1.58 | 0.058 (0.041–0.076) | 0.23 |
+| Pythia-160M | 0.978 | 3.99 | 8.9, 8.10, 8.2 | 3.11 | 2.27 | 0.269 (0.241–0.295) | 0.15 |
+| Pythia-410M | 1.000 | 3.38 | 11.4, 18.8, 17.10 | 2.09 | 1.23 | 0.411 (0.391–0.432) | 0.03 |
+| Pythia-1.4B | 0.998 | 3.89 | 10.7, 15.15, 13.1 | 1.81 | 1.80 | **0.009 (−0.023 to 0.037)** | – |
+
+All five models pass the competence gate. Four show compensation with an interval above zero; Pythia-1.4B does not. Removing its three largest heads costs 1.80 of their 1.81 units of direct effect: the rest of the model restores 1%, and the interval includes zero. H4 is refuted.[^h4] The magnitude varies by a factor of more than a hundred among competent models, from none (Pythia-1.4B) through 6% (GPT-2 medium) and 27–41% (the two smaller Pythias) to 104% (GPT-2 small), with no order by model size within either family: the smallest GPT-2 compensates most and the smallest Pythia less than the next size up. The share that runs through the final LayerNorm scale ranges from 3% to 23% where it is defined (it is not defined for Pythia-1.4B, whose offset is approximately zero).
+
+### 5.7 Development (H5)
+
+![Compensation and competence across Pythia-410M training checkpoints](figures/checkpoints.png)
+
+*Figure 6. Pythia-410M at eleven training checkpoints. Top: compensation of the top three heads, re-selected at each checkpoint, with 95% intervals (shaded, narrower than the line at most points), for the nine checkpoints that pass the competence gate. Bottom: mean logit difference; hollow red points fail the gate. n = 600 prompts per checkpoint. Data: `figures/data.json`.*
+
+| Step | IO preferred | Mean logit difference | Top three heads | Compensation (95% CI) |
+|---|---|---|---|---|
+| 1,000 | 0.407 | −0.23 | – | fails gate |
+| 2,000 | 0.473 | −0.17 | – | fails gate |
+| 4,000 | 0.828 | 1.55 | 11.4, 13.5, 12.0 | −0.870 (−0.900 to −0.839) |
+| 8,000 | 0.988 | 3.90 | 11.4, 13.5, 17.6 | −0.417 (−0.444 to −0.394) |
+| 16,000 | 0.982 | 3.27 | 11.4, 13.5, 17.6 | 0.057 (0.035–0.079) |
+| 32,000 | 0.993 | 3.13 | 11.4, 13.5, 17.6 | 0.367 (0.347–0.386) |
+| 48,000 | 0.998 | 3.44 | 11.4, 17.6, 13.5 | 0.281 (0.258–0.301) |
+| 64,000 | 0.998 | 3.27 | 11.4, 18.8, 17.10 | 0.379 (0.359–0.399) |
+| 96,000 | 1.000 | 3.40 | 11.4, 18.8, 17.10 | 0.433 (0.414–0.451) |
+| 128,000 | 1.000 | 3.36 | 11.4, 18.8, 17.10 | 0.429 (0.409–0.448) |
+| 143,000 | 1.000 | 3.38 | 11.4, 18.8, 17.10 | 0.411 (0.391–0.432) |
+
+Over the nine checkpoints that pass the gate, the Spearman correlation between training step and compensation is 0.92 (95% CI 0.88–0.93); H5 is confirmed.[^spearman] The development has a feature H5 did not anticipate. At the first two competent checkpoints compensation is strongly *negative*: at step 4,000, removing the top three heads costs 1.87 times their direct effect, and at step 8,000, 1.42 times. The rest of the model at that stage does not compensate for the loss; it amplifies it, the pattern [Rushing & Nanda 2024](#references) call downstream breakage. Compensation crosses zero between steps 8,000 and 16,000 and reaches about 0.4 by step 32,000, after which it changes little. The IOI behaviour itself is complete by step 8,000 (99% of prompts), so at that checkpoint the model solves the task with a circuit that fails more than proportionally when its top heads are removed. The identities of the top heads change as [Tigges et al 2024](#references) observed: 11.4 is among them from step 2,000 on, while 18.8 and 17.10 replace 13.5 and 17.6 between steps 48,000 and 64,000. The final checkpoint reproduces the independent Pythia-410M measurement of §5.6 exactly (0.411), as it should, since it is the same model.
+
+### 5.8 Part B: dropout and self-repair (H6, H6c)
+
+*In progress: the eighteen training runs (sweep `fhuassaa`) are being run at the time of writing.*
+
 ## Footnotes
+
+[^oom]: Pythia-1.4B could not be loaded on the local machine: TransformerLens's weight processing holds two copies of the weights in host memory, which exceeded the 15 GB available.
+
+[^h4]: H4 was stated as a universal claim over the models that pass the gate, and one competent model without compensation refutes it. It is possible that compensation in Pythia-1.4B is carried by heads outside the top three, or appears for a different selection of heads; the registered test was the top three by direct effect, and the result is reported for that test.
+
+[^spearman]: The interval resamples prompts, holding the eleven checkpoints fixed; it describes the uncertainty in each checkpoint's compensation, not the uncertainty that would come from a different choice of checkpoints. With nine points, a Spearman correlation of 0.92 has an exact permutation p-value of 0.0013 (two-sided, all 362,880 orderings).
 
 [^hydra]: McGrath et al write that "the use of the name 'Hydra' is not completely mythologically accurate". The ecological hydra effect, an increase in a population following an increase in its mortality ([Abrams 2009](#references)), is closer to the overcompensation observed in §2 than the mythological one, in which two heads replace each one removed. The correspondence between ecological cascades and transformer components has been drawn informally before, for example in an undated essay on the Emberverse site ([emberverse.ai](https://emberverse.ai/stage3/the_trophic_cascade.html)), which reports no measurements.

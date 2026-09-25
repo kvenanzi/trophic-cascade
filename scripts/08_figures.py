@@ -112,21 +112,22 @@ def part_a(src: Path, data: dict):
     data["keystones"] = df[["head", "class", "abundance", "direct_effect", "total_effect", "effect_share",
                             "community_importance", "keystone"]].to_dict("records")
 
-    # Figure 3: interaction-strength matrix, layers 5-11 (all heads upstream of 5 respond weakly)
-    inter = r["interaction"].reshape(L, H, L, H)[5:, :, 5:, :].reshape((L - 5) * H, (L - 5) * H)
+    # Figure 3: interaction-strength matrix. Rows: every removed head; columns: the heads
+    # of layers 9-11, the only layers with a response above 0.05.
+    inter = r["interaction"][:, 9 * H:]
     v = float(np.percentile(np.abs(inter), 99.8))
-    fig, ax = plt.subplots(figsize=(7.2, 6.2))
-    im = ax.imshow(inter, cmap=DIVERGING, vmin=-v, vmax=v, interpolation="nearest")
-    ticks = np.arange(0, (L - 5) * H, H)
-    ax.set_xticks(ticks + H / 2 - 0.5, [f"L{l}" for l in range(5, L)])
-    ax.set_yticks(ticks + H / 2 - 0.5, [f"L{l}" for l in range(5, L)])
-    for t in ticks[1:]:
-        ax.axhline(t - 0.5, color=SURFACE, lw=1.2)
+    fig, ax = plt.subplots(figsize=(6.2, 8.2))
+    im = ax.imshow(inter, cmap=DIVERGING, vmin=-v, vmax=v, interpolation="nearest", aspect="auto")
+    ax.set_xticks(np.arange(0, 3 * H, H) + H / 2 - 0.5, [f"L{l}" for l in range(9, L)])
+    ax.set_yticks(np.arange(0, L * H, H) + H / 2 - 0.5, [f"L{l}" for l in range(L)])
+    for t in np.arange(H, 3 * H, H):
         ax.axvline(t - 0.5, color=SURFACE, lw=1.2)
+    for t in np.arange(H, L * H, H):
+        ax.axhline(t - 0.5, color=SURFACE, lw=1.2)
     ax.grid(False)
-    ax.set_xlabel("responding head (grouped by layer)")
-    ax.set_ylabel("removed head (grouped by layer)")
-    cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.03)
+    ax.set_xlabel("responding head (layers 9-11)")
+    ax.set_ylabel("removed head (all layers)")
+    cb = fig.colorbar(im, ax=ax, fraction=0.05, pad=0.03)
     cb.set_label("change in direct effect (logit difference)")
     cb.outline.set_visible(False)
     save(fig, "interaction_matrix.png")
