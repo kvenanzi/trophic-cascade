@@ -1,0 +1,1876 @@
+{
+ "name_mover_removal": [
+  {
+   "head": "10.7",
+   "class": "negative_name_mover",
+   "intact": -2.0604357719421387,
+   "removed": 0.0734708309173584
+  },
+  {
+   "head": "10.10",
+   "class": "backup_name_mover",
+   "intact": 0.5420092344284058,
+   "removed": 1.3495992422103882
+  },
+  {
+   "head": "10.2",
+   "class": "backup_name_mover",
+   "intact": 0.04539717361330986,
+   "removed": 0.7103763818740845
+  },
+  {
+   "head": "11.2",
+   "class": "backup_name_mover",
+   "intact": -0.3133029043674469,
+   "removed": 0.29324743151664734
+  },
+  {
+   "head": "10.6",
+   "class": "backup_name_mover",
+   "intact": 0.3633982837200165,
+   "removed": 0.7637757062911987
+  },
+  {
+   "head": "11.10",
+   "class": "negative_name_mover",
+   "intact": -1.0194555521011353,
+   "removed": -1.291128396987915
+  },
+  {
+   "head": "10.1",
+   "class": "backup_name_mover",
+   "intact": 0.23231902718544006,
+   "removed": 0.4824710190296173
+  },
+  {
+   "head": "11.1",
+   "class": "",
+   "intact": -0.025009959936141968,
+   "removed": 0.06218394637107849
+  },
+  {
+   "head": "11.9",
+   "class": "backup_name_mover",
+   "intact": 0.0009031058289110661,
+   "removed": 0.08035746216773987
+  },
+  {
+   "head": "11.6",
+   "class": "",
+   "intact": -0.07641365379095078,
+   "removed": -0.01609627902507782
+  }
+ ],
+ "keystones": [
+  {
+   "head": "0.0",
+   "class": "",
+   "abundance": 0.0003092659462708,
+   "direct_effect": -0.0033310051076114,
+   "total_effect": -0.0073859691619873,
+   "effect_share": -0.0020258583200527,
+   "community_importance": -6.550537586212158,
+   "keystone": false
+  },
+  {
+   "head": "0.1",
+   "class": "duplicate_token",
+   "abundance": 2.97859116926702e-07,
+   "direct_effect": -3.208145699318265e-06,
+   "total_effect": 0.0094218254089355,
+   "effect_share": 0.0025842625356482,
+   "community_importance": 8676.1240234375,
+   "keystone": false
+  },
+  {
+   "head": "0.2",
+   "class": "",
+   "abundance": 5.8375746448291466e-05,
+   "direct_effect": -0.0006287465803325,
+   "total_effect": -0.0042881965637207,
+   "effect_share": -0.0011761866988756,
+   "community_importance": -20.14855194091797,
+   "keystone": false
+  },
+  {
+   "head": "0.3",
+   "class": "",
+   "abundance": 2.4578666852903552e-05,
+   "direct_effect": -0.0002647289948072,
+   "total_effect": -0.0300657749176025,
+   "effect_share": -0.0082465819894204,
+   "community_importance": -335.51788330078125,
+   "keystone": false
+  },
+  {
+   "head": "0.4",
+   "class": "",
+   "abundance": 1.1643138350336812e-05,
+   "direct_effect": -0.0001254045346286,
+   "total_effect": -0.0184011459350585,
+   "effect_share": -0.0050471527532094,
+   "community_importance": -433.4873046875,
+   "keystone": false
+  },
+  {
+   "head": "0.5",
+   "class": "",
+   "abundance": 5.330740805220557e-06,
+   "direct_effect": -5.741571294493042e-05,
+   "total_effect": -0.0549869537353515,
+   "effect_share": -0.0150820799919433,
+   "community_importance": -2829.265380859375,
+   "keystone": false
+  },
+  {
+   "head": "0.6",
+   "class": "",
+   "abundance": 0.0006561837508343,
+   "direct_effect": -0.0070675462484359,
+   "total_effect": -0.0493459701538085,
+   "effect_share": -0.0135348445146055,
+   "community_importance": -20.62660789489746,
+   "keystone": false
+  },
+  {
+   "head": "0.7",
+   "class": "",
+   "abundance": 0.0002263018395751,
+   "direct_effect": -0.0024374250788241,
+   "total_effect": -0.0175309181213378,
+   "effect_share": -0.0048084625802473,
+   "community_importance": -21.24800491333008,
+   "keystone": false
+  },
+  {
+   "head": "0.8",
+   "class": "",
+   "abundance": 1.2337530279182827e-05,
+   "direct_effect": -0.0001328836078755,
+   "total_effect": -0.0098583698272705,
+   "effect_share": -0.0027039999895368,
+   "community_importance": -219.16867065429688,
+   "keystone": false
+  },
+  {
+   "head": "0.9",
+   "class": "",
+   "abundance": 2.4833265342749652e-05,
+   "direct_effect": 0.0002674711868166,
+   "total_effect": 0.0153071880340576,
+   "effect_share": 0.0041985274451192,
+   "community_importance": 169.0686798095703,
+   "keystone": false
+  },
+  {
+   "head": "0.10",
+   "class": "duplicate_token",
+   "abundance": 6.0231021052459255e-05,
+   "direct_effect": -0.0006487291539087,
+   "total_effect": 0.1444242000579834,
+   "effect_share": 0.0396133480776285,
+   "community_importance": 657.6901245117188,
+   "keystone": false
+  },
+  {
+   "head": "0.11",
+   "class": "",
+   "abundance": 4.2883941205218434e-05,
+   "direct_effect": -0.0004618892562575,
+   "total_effect": -0.0011403560638427,
+   "effect_share": -0.0003127822184322,
+   "community_importance": -7.293691158294678,
+   "keystone": false
+  },
+  {
+   "head": "1.0",
+   "class": "",
+   "abundance": 6.144682265585288e-05,
+   "direct_effect": -0.0006618241313844,
+   "total_effect": -0.0267019271850585,
+   "effect_share": -0.007323930030428,
+   "community_importance": -119.19135284423828,
+   "keystone": false
+  },
+  {
+   "head": "1.1",
+   "class": "",
+   "abundance": 7.329328946070746e-05,
+   "direct_effect": -0.0007894187001511,
+   "total_effect": 0.0042595863342285,
+   "effect_share": 0.0011683393507234,
+   "community_importance": 15.94060516357422,
+   "keystone": false
+  },
+  {
+   "head": "1.2",
+   "class": "",
+   "abundance": 5.382703966461122e-05,
+   "direct_effect": 0.0005797538906335,
+   "total_effect": 0.002389907836914,
+   "effect_share": 0.0006555151489786,
+   "community_importance": 12.178175926208496,
+   "keystone": false
+  },
+  {
+   "head": "1.3",
+   "class": "",
+   "abundance": 1.706941293377895e-05,
+   "direct_effect": 0.0001838492025854,
+   "total_effect": 0.0040535926818847,
+   "effect_share": 0.0011118384440278,
+   "community_importance": 65.13630676269531,
+   "keystone": false
+  },
+  {
+   "head": "1.4",
+   "class": "",
+   "abundance": 0.0001819500466808,
+   "direct_effect": -0.0019597259815782,
+   "total_effect": -0.0047512054443359,
+   "effect_share": -0.001303182949805,
+   "community_importance": -7.162311553955078,
+   "keystone": false
+  },
+  {
+   "head": "1.5",
+   "class": "",
+   "abundance": 2.320159001101274e-05,
+   "direct_effect": 0.0002498969261068,
+   "total_effect": 0.0218510627746582,
+   "effect_share": 0.0059934121512262,
+   "community_importance": 258.31903076171875,
+   "keystone": false
+  },
+  {
+   "head": "1.6",
+   "class": "",
+   "abundance": 0.0001878365292213,
+   "direct_effect": -0.0020231273956596,
+   "total_effect": -0.0143964290618896,
+   "effect_share": -0.0039487201956082,
+   "community_importance": -21.02210998535156,
+   "keystone": false
+  },
+  {
+   "head": "1.7",
+   "class": "",
+   "abundance": 0.0005588207859545,
+   "direct_effect": -0.0060188807547092,
+   "total_effect": -0.0147297382354736,
+   "effect_share": -0.0040401418015811,
+   "community_importance": -7.229762554168701,
+   "keystone": false
+  },
+  {
+   "head": "1.8",
+   "class": "",
+   "abundance": 0.0002944496518466,
+   "direct_effect": 0.0031714234501123,
+   "total_effect": -0.0060069561004638,
+   "effect_share": -0.0016476161391177,
+   "community_importance": -5.595578670501709,
+   "keystone": false
+  },
+  {
+   "head": "1.9",
+   "class": "",
+   "abundance": 0.0001756419078446,
+   "direct_effect": 0.0018917830893769,
+   "total_effect": -0.0004780292510986,
+   "effect_share": -0.0001311161087093,
+   "community_importance": -0.7464966773986816,
+   "keystone": false
+  },
+  {
+   "head": "1.10",
+   "class": "",
+   "abundance": 8.597752457717434e-05,
+   "direct_effect": 0.0009260365623049,
+   "total_effect": -0.0006546974182128,
+   "effect_share": -0.000179573483549,
+   "community_importance": -2.0886096954345703,
+   "keystone": false
+  },
+  {
+   "head": "1.11",
+   "class": "",
+   "abundance": 0.0001468661648686,
+   "direct_effect": 0.0015818487154319,
+   "total_effect": -0.0021893978118896,
+   "effect_share": -0.0006005183173454,
+   "community_importance": -4.088881492614746,
+   "keystone": false
+  },
+  {
+   "head": "2.0",
+   "class": "",
+   "abundance": 4.186161095276475e-05,
+   "direct_effect": -0.0004508780839387,
+   "total_effect": -0.0016694068908691,
+   "effect_share": -0.0004578927646796,
+   "community_importance": -10.938250541687012,
+   "keystone": false
+  },
+  {
+   "head": "2.1",
+   "class": "",
+   "abundance": 5.868163498234935e-05,
+   "direct_effect": -0.0006320411921478,
+   "total_effect": -0.0132441520690917,
+   "effect_share": -0.0036326682487792,
+   "community_importance": -61.90468597412109,
+   "keystone": false
+  },
+  {
+   "head": "2.2",
+   "class": "previous_token",
+   "abundance": 3.165658563375473e-05,
+   "direct_effect": 0.0003409630153328,
+   "total_effect": 0.0015270709991455,
+   "effect_share": 0.0004188522076225,
+   "community_importance": 13.231123924255373,
+   "keystone": false
+  },
+  {
+   "head": "2.3",
+   "class": "",
+   "abundance": 7.750472286716104e-05,
+   "direct_effect": -0.0008347786497324,
+   "total_effect": 0.0019817352294921,
+   "effect_share": 0.0005435596486742,
+   "community_importance": 7.013245582580566,
+   "keystone": false
+  },
+  {
+   "head": "2.4",
+   "class": "",
+   "abundance": 9.46255458984524e-05,
+   "direct_effect": 0.0010191815672442,
+   "total_effect": -0.0392122268676757,
+   "effect_share": -0.0107553137991039,
+   "community_importance": -113.6618423461914,
+   "keystone": false
+  },
+  {
+   "head": "2.5",
+   "class": "",
+   "abundance": 1.6572492313571274e-05,
+   "direct_effect": 0.0001784970372682,
+   "total_effect": -0.0062129497528076,
+   "effect_share": -0.0017041170458134,
+   "community_importance": -102.82804870605467,
+   "keystone": false
+  },
+  {
+   "head": "2.6",
+   "class": "",
+   "abundance": 5.88655166211538e-05,
+   "direct_effect": 0.0006340217078104,
+   "total_effect": 0.0229508876800537,
+   "effect_share": 0.0062950772931095,
+   "community_importance": 106.9399871826172,
+   "keystone": false
+  },
+  {
+   "head": "2.7",
+   "class": "",
+   "abundance": 0.0004292207595426,
+   "direct_effect": 0.0046230000443756,
+   "total_effect": 0.0197160243988037,
+   "effect_share": 0.0054078037953699,
+   "community_importance": 12.599119186401367,
+   "keystone": false
+  },
+  {
+   "head": "2.8",
+   "class": "",
+   "abundance": 1.6607447832939215e-05,
+   "direct_effect": -0.000178873524419,
+   "total_effect": -0.0152192115783691,
+   "effect_share": -0.0041743968495512,
+   "community_importance": -251.3569183349609,
+   "keystone": false
+  },
+  {
+   "head": "2.9",
+   "class": "",
+   "abundance": 0.0003129562246613,
+   "direct_effect": -0.0033707516267895,
+   "total_effect": -0.0228910446166992,
+   "effect_share": -0.0062786632565579,
+   "community_importance": -20.06243324279785,
+   "keystone": false
+  },
+  {
+   "head": "2.10",
+   "class": "",
+   "abundance": 5.635193156194873e-05,
+   "direct_effect": 0.0006069486844353,
+   "total_effect": -0.0222947597503662,
+   "effect_share": -0.0061151114421529,
+   "community_importance": -108.51644897460938,
+   "keystone": false
+  },
+  {
+   "head": "2.11",
+   "class": "",
+   "abundance": 8.202293247450143e-05,
+   "direct_effect": 0.0008834428736008,
+   "total_effect": 0.0192697048187255,
+   "effect_share": 0.0052853851641959,
+   "community_importance": 64.43789672851562,
+   "keystone": false
+  },
+  {
+   "head": "3.0",
+   "class": "duplicate_token",
+   "abundance": 9.909155096465838e-07,
+   "direct_effect": 1.0672834832803346e-05,
+   "total_effect": 0.5240983963012695,
+   "effect_share": 0.1437521702822233,
+   "community_importance": 145070.0625,
+   "keystone": true
+  },
+  {
+   "head": "3.1",
+   "class": "",
+   "abundance": 1.1549812370503789e-05,
+   "direct_effect": -0.0001243993465323,
+   "total_effect": -0.011660099029541,
+   "effect_share": -0.0031981867394203,
+   "community_importance": -276.9037780761719,
+   "keystone": false
+  },
+  {
+   "head": "3.2",
+   "class": "",
+   "abundance": 3.218478013877757e-05,
+   "direct_effect": -0.0003466520283836,
+   "total_effect": -0.0176117420196533,
+   "effect_share": -0.0048306313387772,
+   "community_importance": -150.09054565429688,
+   "keystone": false
+  },
+  {
+   "head": "3.3",
+   "class": "",
+   "abundance": 9.733068145578728e-05,
+   "direct_effect": 0.0010483177611604,
+   "total_effect": -0.0738887786865234,
+   "effect_share": -0.0202665613378159,
+   "community_importance": -208.2237701416016,
+   "keystone": false
+  },
+  {
+   "head": "3.4",
+   "class": "",
+   "abundance": 1.0325961738999467e-05,
+   "direct_effect": 0.0001112176469177,
+   "total_effect": 0.0349879264831543,
+   "effect_share": 0.0095966528444348,
+   "community_importance": 929.3713989257812,
+   "keystone": false
+  },
+  {
+   "head": "3.5",
+   "class": "",
+   "abundance": 0.0001087108103092,
+   "direct_effect": -0.0011708894744515,
+   "total_effect": -0.012538194656372,
+   "effect_share": -0.0034390349331242,
+   "community_importance": -31.63471031188965,
+   "keystone": false
+  },
+  {
+   "head": "3.6",
+   "class": "",
+   "abundance": 0.0002873976773116,
+   "direct_effect": -0.0030954687390476,
+   "total_effect": 0.0192217826843261,
+   "effect_share": 0.005272240856041,
+   "community_importance": 18.344757080078125,
+   "keystone": false
+  },
+  {
+   "head": "3.7",
+   "class": "",
+   "abundance": 0.0001996677019633,
+   "direct_effect": -0.0021505572367459,
+   "total_effect": -0.0560286045074462,
+   "effect_share": -0.0153677888592506,
+   "community_importance": -76.96682739257812,
+   "keystone": false
+  },
+  {
+   "head": "3.8",
+   "class": "",
+   "abundance": 4.763976448884932e-06,
+   "direct_effect": 5.1311271818121895e-05,
+   "total_effect": 0.0072832107543945,
+   "effect_share": 0.0019976732612728,
+   "community_importance": 419.3289489746094,
+   "keystone": false
+  },
+  {
+   "head": "3.9",
+   "class": "",
+   "abundance": 8.087979040283244e-06,
+   "direct_effect": -8.711304690223187e-05,
+   "total_effect": -0.0186102390289306,
+   "effect_share": -0.0051045037892882,
+   "community_importance": -631.1222534179688,
+   "keystone": false
+  },
+  {
+   "head": "3.10",
+   "class": "",
+   "abundance": 5.261965998215601e-05,
+   "direct_effect": -0.0005667496006935,
+   "total_effect": 0.0796806812286377,
+   "effect_share": 0.0218551915766564,
+   "community_importance": 415.34271240234375,
+   "keystone": false
+  },
+  {
+   "head": "3.11",
+   "class": "",
+   "abundance": 4.3794847442768514e-05,
+   "direct_effect": 0.0004717003321275,
+   "total_effect": -0.0121431350708007,
+   "effect_share": -0.0033306761340562,
+   "community_importance": -76.0517807006836,
+   "keystone": false
+  },
+  {
+   "head": "4.0",
+   "class": "",
+   "abundance": 4.697514214058174e-06,
+   "direct_effect": -5.059543036622927e-05,
+   "total_effect": -0.0164639949798584,
+   "effect_share": -0.0045158218887389,
+   "community_importance": -961.3216552734376,
+   "keystone": false
+  },
+  {
+   "head": "4.1",
+   "class": "",
+   "abundance": 7.60196489864029e-05,
+   "direct_effect": -0.000818783417344,
+   "total_effect": -0.0176448822021484,
+   "effect_share": -0.0048397211837201,
+   "community_importance": -63.66408157348633,
+   "keystone": false
+  },
+  {
+   "head": "4.2",
+   "class": "",
+   "abundance": 7.26415091776289e-05,
+   "direct_effect": -0.0007823985652066,
+   "total_effect": -0.001824140548706,
+   "effect_share": -0.0005003338392693,
+   "community_importance": -6.887712478637695,
+   "keystone": false
+  },
+  {
+   "head": "4.3",
+   "class": "",
+   "abundance": 0.0004508700803853,
+   "direct_effect": -0.0048561780713498,
+   "total_effect": -0.0088114738464355,
+   "effect_share": -0.002416852441735,
+   "community_importance": -5.360418796539307,
+   "keystone": false
+  },
+  {
+   "head": "4.4",
+   "class": "",
+   "abundance": 0.0001795403659343,
+   "direct_effect": 0.0019337721168994,
+   "total_effect": 0.0514748096466064,
+   "effect_share": 0.0141187526116955,
+   "community_importance": 78.63832092285156,
+   "keystone": false
+  },
+  {
+   "head": "4.5",
+   "class": "",
+   "abundance": 1.9020219042431563e-05,
+   "direct_effect": 0.0002048607129836,
+   "total_effect": -0.0013308525085449,
+   "effect_share": -0.0003650324782121,
+   "community_importance": -19.19181251525879,
+   "keystone": false
+  },
+  {
+   "head": "4.6",
+   "class": "",
+   "abundance": 0.0001159032108262,
+   "direct_effect": -0.001248356536962,
+   "total_effect": 0.0743584632873535,
+   "effect_share": 0.0203953886366475,
+   "community_importance": 175.96914672851562,
+   "keystone": false
+  },
+  {
+   "head": "4.7",
+   "class": "",
+   "abundance": 5.299296753946692e-05,
+   "direct_effect": -0.0005707703530788,
+   "total_effect": 0.1560420989990234,
+   "effect_share": 0.0427999599785244,
+   "community_importance": 807.6536254882812,
+   "keystone": false
+  },
+  {
+   "head": "4.8",
+   "class": "",
+   "abundance": 1.867333230620716e-05,
+   "direct_effect": -0.0002011245087487,
+   "total_effect": 0.015594482421875,
+   "effect_share": 0.0042773278994807,
+   "community_importance": 229.06077575683597,
+   "keystone": false
+  },
+  {
+   "head": "4.9",
+   "class": "",
+   "abundance": 1.2916584637423512e-05,
+   "direct_effect": -0.0001391204132232,
+   "total_effect": -0.006953477859497,
+   "effect_share": -0.001907232573819,
+   "community_importance": -147.65765380859375,
+   "keystone": false
+  },
+  {
+   "head": "4.10",
+   "class": "",
+   "abundance": 2.950195448647719e-05,
+   "direct_effect": 0.0003177561447955,
+   "total_effect": 0.0019772052764892,
+   "effect_share": 0.0005423171518834,
+   "community_importance": 18.38241577148437,
+   "keystone": false
+  },
+  {
+   "head": "4.11",
+   "class": "previous_token",
+   "abundance": 8.165143663063645e-05,
+   "direct_effect": 0.000879441620782,
+   "total_effect": 0.0626192092895507,
+   "effect_share": 0.0171754909006728,
+   "community_importance": 210.35134887695312,
+   "keystone": false
+  },
+  {
+   "head": "5.0",
+   "class": "",
+   "abundance": 6.939185823284788e-06,
+   "direct_effect": -7.473975711036474e-05,
+   "total_effect": 0.0015394687652587,
+   "effect_share": 0.0004222527251551,
+   "community_importance": 60.85047149658203,
+   "keystone": false
+  },
+  {
+   "head": "5.1",
+   "class": "",
+   "abundance": 5.832307579112239e-06,
+   "direct_effect": -6.281792593654245e-05,
+   "total_effect": -0.0086002349853515,
+   "effect_share": -0.0023589128545448,
+   "community_importance": -404.4562072753906,
+   "keystone": false
+  },
+  {
+   "head": "5.2",
+   "class": "",
+   "abundance": 0.0002770311257336,
+   "direct_effect": -0.0029838138725608,
+   "total_effect": 0.0024101734161376,
+   "effect_share": 0.000661073687253,
+   "community_importance": 2.386279344558716,
+   "keystone": false
+  },
+  {
+   "head": "5.3",
+   "class": "",
+   "abundance": 0.0001142664841609,
+   "direct_effect": -0.0012307278811931,
+   "total_effect": 0.0221848487854003,
+   "effect_share": 0.0060849645463349,
+   "community_importance": 53.25239944458008,
+   "keystone": false
+  },
+  {
+   "head": "5.4",
+   "class": "",
+   "abundance": 1.674589111644309e-05,
+   "direct_effect": 0.0001803646591724,
+   "total_effect": -0.0068838596343994,
+   "effect_share": -0.001888137359982,
+   "community_importance": -112.75227355957033,
+   "keystone": false
+  },
+  {
+   "head": "5.5",
+   "class": "induction",
+   "abundance": 9.3878734332975e-05,
+   "direct_effect": -0.0010111379669979,
+   "total_effect": 1.0175867080688477,
+   "effect_share": 0.279108462776431,
+   "community_importance": 2973.074462890625,
+   "keystone": true
+  },
+  {
+   "head": "5.6",
+   "class": "",
+   "abundance": 5.08818993694149e-06,
+   "direct_effect": 5.4803273087600246e-05,
+   "total_effect": 0.0526835918426513,
+   "effect_share": 0.014450303071125,
+   "community_importance": 2839.96923828125,
+   "keystone": false
+  },
+  {
+   "head": "5.7",
+   "class": "",
+   "abundance": 2.5699921025079675e-05,
+   "direct_effect": 0.000276805658359,
+   "total_effect": -0.0467357635498046,
+   "effect_share": -0.0128189047848551,
+   "community_importance": -498.7915954589844,
+   "keystone": false
+  },
+  {
+   "head": "5.8",
+   "class": "induction",
+   "abundance": 8.873477054294199e-05,
+   "direct_effect": 0.00095573393628,
+   "total_effect": 0.1392958164215088,
+   "effect_share": 0.0382067109213506,
+   "community_importance": 430.5720520019531,
+   "keystone": false
+  },
+  {
+   "head": "5.9",
+   "class": "induction",
+   "abundance": 7.367622310994193e-05,
+   "direct_effect": 0.0007935431203804,
+   "total_effect": 0.3707883358001709,
+   "effect_share": 0.101701566657664,
+   "community_importance": 1380.3851318359375,
+   "keystone": true
+  },
+  {
+   "head": "5.10",
+   "class": "",
+   "abundance": 0.0004116593627259,
+   "direct_effect": -0.0044338516891002,
+   "total_effect": -0.2231595516204834,
+   "effect_share": -0.0612092501924235,
+   "community_importance": -148.68907165527344,
+   "keystone": true
+  },
+  {
+   "head": "5.11",
+   "class": "",
+   "abundance": 0.0003181983483955,
+   "direct_effect": 0.0034272130578756,
+   "total_effect": 0.0458984375,
+   "effect_share": 0.012589239062268,
+   "community_importance": 39.56412506103516,
+   "keystone": false
+  },
+  {
+   "head": "6.0",
+   "class": "",
+   "abundance": 0.0017380639910697,
+   "direct_effect": -0.0187201332300901,
+   "total_effect": 0.1884331703186035,
+   "effect_share": 0.0516843351890131,
+   "community_importance": 29.736726760864254,
+   "keystone": true
+  },
+  {
+   "head": "6.1",
+   "class": "",
+   "abundance": 0.00013886828674,
+   "direct_effect": -0.0014957060338929,
+   "total_effect": 0.0716586112976074,
+   "effect_share": 0.0196548605493536,
+   "community_importance": 141.53599548339844,
+   "keystone": false
+  },
+  {
+   "head": "6.2",
+   "class": "",
+   "abundance": 0.0001628305617487,
+   "direct_effect": 0.0017537961248308,
+   "total_effect": 0.0216493606567382,
+   "effect_share": 0.0059380883467533,
+   "community_importance": 36.467899322509766,
+   "keystone": false
+  },
+  {
+   "head": "6.3",
+   "class": "",
+   "abundance": 5.638506991090253e-06,
+   "direct_effect": 6.073056283639744e-05,
+   "total_effect": 0.0147945880889892,
+   "effect_share": 0.0040579291240593,
+   "community_importance": 719.6814575195312,
+   "keystone": false
+  },
+  {
+   "head": "6.4",
+   "class": "",
+   "abundance": 0.0004880781925749,
+   "direct_effect": -0.00525693455711,
+   "total_effect": -0.0039050579071044,
+   "effect_share": -0.0010710976282044,
+   "community_importance": -2.194520711898804,
+   "keystone": false
+  },
+  {
+   "head": "6.5",
+   "class": "",
+   "abundance": 0.0001413664431311,
+   "direct_effect": 0.0015226129908114,
+   "total_effect": 0.0211968421936035,
+   "effect_share": 0.0058139694568131,
+   "community_importance": 41.1269416809082,
+   "keystone": false
+  },
+  {
+   "head": "6.6",
+   "class": "",
+   "abundance": 0.0003697992069646,
+   "direct_effect": 0.0039829895831644,
+   "total_effect": -0.1177484989166259,
+   "effect_share": -0.0322966114496733,
+   "community_importance": -87.33554077148438,
+   "keystone": false
+  },
+  {
+   "head": "6.7",
+   "class": "",
+   "abundance": 0.0003092397237196,
+   "direct_effect": -0.0033307226840406,
+   "total_effect": 0.0058891773223876,
+   "effect_share": 0.0016153112225579,
+   "community_importance": 5.22349214553833,
+   "keystone": false
+  },
+  {
+   "head": "6.8",
+   "class": "",
+   "abundance": 0.0001077407723641,
+   "direct_effect": -0.0011604415485635,
+   "total_effect": 0.0017330646514892,
+   "effect_share": 0.0004753531143182,
+   "community_importance": 4.412007808685303,
+   "keystone": false
+  },
+  {
+   "head": "6.9",
+   "class": "induction",
+   "abundance": 0.0001312690874328,
+   "direct_effect": -0.0014138574479147,
+   "total_effect": 0.5550048351287842,
+   "effect_share": 0.152229333518182,
+   "community_importance": 1159.6739501953125,
+   "keystone": true
+  },
+  {
+   "head": "6.10",
+   "class": "",
+   "abundance": 7.762341556372121e-05,
+   "direct_effect": -0.0008360570645891,
+   "total_effect": 0.0090703964233398,
+   "effect_share": 0.0024878709425122,
+   "community_importance": 32.05052185058594,
+   "keystone": false
+  },
+  {
+   "head": "6.11",
+   "class": "",
+   "abundance": 9.156990563496949e-05,
+   "direct_effect": 0.0009862702572718,
+   "total_effect": -0.0159926414489746,
+   "effect_share": -0.0043865368279318,
+   "community_importance": -47.90369415283203,
+   "keystone": false
+  },
+  {
+   "head": "7.0",
+   "class": "",
+   "abundance": 2.008993214985821e-05,
+   "direct_effect": 0.0002163822646252,
+   "total_effect": 0.0167176723480224,
+   "effect_share": 0.0045854017090216,
+   "community_importance": 228.24375915527344,
+   "keystone": false
+  },
+  {
+   "head": "7.1",
+   "class": "",
+   "abundance": 0.0002861033135559,
+   "direct_effect": -0.0030815275385975,
+   "total_effect": 0.1364274024963379,
+   "effect_share": 0.0374199488745267,
+   "community_importance": 130.79173278808594,
+   "keystone": false
+  },
+  {
+   "head": "7.2",
+   "class": "",
+   "abundance": 3.12448428303469e-05,
+   "direct_effect": -0.0003365282609593,
+   "total_effect": 0.0009195804595947,
+   "effect_share": 0.0002522268485246,
+   "community_importance": 8.072591781616211,
+   "keystone": false
+  },
+  {
+   "head": "7.3",
+   "class": "s_inhibition",
+   "abundance": 0.0092306248843669,
+   "direct_effect": 0.0994201228022575,
+   "total_effect": 0.4670400619506836,
+   "effect_share": 0.1281019422840622,
+   "community_importance": 13.877927780151367,
+   "keystone": true
+  },
+  {
+   "head": "7.4",
+   "class": "",
+   "abundance": 5.80173909838777e-05,
+   "direct_effect": -0.0006248868303373,
+   "total_effect": 0.006420612335205,
+   "effect_share": 0.0017610757144847,
+   "community_importance": 30.354272842407227,
+   "keystone": false
+  },
+  {
+   "head": "7.5",
+   "class": "",
+   "abundance": 0.001825701794587,
+   "direct_effect": -0.0196640528738498,
+   "total_effect": -0.0568020343780517,
+   "effect_share": -0.0155799288376311,
+   "community_importance": -8.533665657043457,
+   "keystone": false
+  },
+  {
+   "head": "7.6",
+   "class": "",
+   "abundance": 0.0001029140694299,
+   "direct_effect": 0.0011084546567872,
+   "total_effect": 0.0080969333648681,
+   "effect_share": 0.0022208649216344,
+   "community_importance": 21.579797744750977,
+   "keystone": false
+  },
+  {
+   "head": "7.7",
+   "class": "",
+   "abundance": 6.400067650247365e-05,
+   "direct_effect": -0.0006893309182487,
+   "total_effect": 0.0378251075744628,
+   "effect_share": 0.0103748482028591,
+   "community_importance": 162.10528564453125,
+   "keystone": false
+  },
+  {
+   "head": "7.8",
+   "class": "",
+   "abundance": 0.0005326581303961,
+   "direct_effect": -0.0057370909489691,
+   "total_effect": -0.0382266044616699,
+   "effect_share": -0.0104849726552614,
+   "community_importance": -19.68424415588379,
+   "keystone": false
+  },
+  {
+   "head": "7.9",
+   "class": "s_inhibition",
+   "abundance": 0.0188942700624465,
+   "direct_effect": 0.2035041600465774,
+   "total_effect": 1.0025954246520996,
+   "effect_share": 0.2749965831338254,
+   "community_importance": 14.554495811462402,
+   "keystone": true
+  },
+  {
+   "head": "7.10",
+   "class": "",
+   "abundance": 6.263582326937467e-05,
+   "direct_effect": -0.0006746304570697,
+   "total_effect": 0.0088112354278564,
+   "effect_share": 0.0024167870471671,
+   "community_importance": 38.584739685058594,
+   "keystone": false
+  },
+  {
+   "head": "7.11",
+   "class": "",
+   "abundance": 0.0003895860572811,
+   "direct_effect": -0.0041961073875427,
+   "total_effect": -0.010040283203125,
+   "effect_share": -0.0027538960448711,
+   "community_importance": -7.068774223327637,
+   "keystone": false
+  },
+  {
+   "head": "8.0",
+   "class": "",
+   "abundance": 4.872160388913471e-06,
+   "direct_effect": -5.2476487326202914e-05,
+   "total_effect": -0.0061774253845214,
+   "effect_share": -0.0016943732551911,
+   "community_importance": -347.76629638671875,
+   "keystone": false
+  },
+  {
+   "head": "8.1",
+   "class": "",
+   "abundance": 1.76039229700109e-05,
+   "direct_effect": -0.0001896062458399,
+   "total_effect": -0.0028135776519775,
+   "effect_share": -0.0007717212961988,
+   "community_importance": -43.83803176879883,
+   "keystone": false
+  },
+  {
+   "head": "8.2",
+   "class": "",
+   "abundance": 0.0026856889016926,
+   "direct_effect": -0.0289267003536224,
+   "total_effect": -0.0492002964019775,
+   "effect_share": -0.0134948884335973,
+   "community_importance": -5.024739742279053,
+   "keystone": false
+  },
+  {
+   "head": "8.3",
+   "class": "",
+   "abundance": 0.0005606006016023,
+   "direct_effect": 0.0060380501672625,
+   "total_effect": -0.0057392120361328,
+   "effect_share": -0.0015741780393269,
+   "community_importance": -2.80802059173584,
+   "keystone": false
+  },
+  {
+   "head": "8.4",
+   "class": "",
+   "abundance": 0.0002190027153119,
+   "direct_effect": 0.0023588084150105,
+   "total_effect": -0.0070087909698486,
+   "effect_share": -0.0019224041135799,
+   "community_importance": -8.777992248535156,
+   "keystone": false
+  },
+  {
+   "head": "8.5",
+   "class": "",
+   "abundance": 0.000575476733502,
+   "direct_effect": -0.0061982767656445,
+   "total_effect": 0.012014627456665,
+   "effect_share": 0.0032954284619393,
+   "community_importance": 5.726431846618652,
+   "keystone": false
+  },
+  {
+   "head": "8.6",
+   "class": "s_inhibition",
+   "abundance": 0.0048819743096828,
+   "direct_effect": -0.0525821894407272,
+   "total_effect": 1.3331398963928225,
+   "effect_share": 0.3656598736969315,
+   "community_importance": 74.89999389648438,
+   "keystone": true
+  },
+  {
+   "head": "8.7",
+   "class": "",
+   "abundance": 0.0002183349861297,
+   "direct_effect": 0.0023516165092587,
+   "total_effect": 0.0040922164916992,
+   "effect_share": 0.0011224323640332,
+   "community_importance": 5.140872955322266,
+   "keystone": false
+  },
+  {
+   "head": "8.8",
+   "class": "",
+   "abundance": 0.0024594685528427,
+   "direct_effect": -0.0264901518821716,
+   "total_effect": -0.0166482925415039,
+   "effect_share": -0.0045663718897526,
+   "community_importance": -1.8566498756408687,
+   "keystone": false
+  },
+  {
+   "head": "8.9",
+   "class": "",
+   "abundance": 0.0001146230424637,
+   "direct_effect": 0.0012345683062449,
+   "total_effect": 0.007249116897583,
+   "effect_share": 0.0019883218380582,
+   "community_importance": 17.346614837646484,
+   "keystone": false
+  },
+  {
+   "head": "8.10",
+   "class": "s_inhibition",
+   "abundance": 0.0256133060902357,
+   "direct_effect": 0.2758727669715881,
+   "total_effect": 1.0623531341552734,
+   "effect_share": 0.2913872084301445,
+   "community_importance": 11.376399040222168,
+   "keystone": true
+  },
+  {
+   "head": "8.11",
+   "class": "",
+   "abundance": 0.001318359049037,
+   "direct_effect": 0.0141996257007122,
+   "total_effect": -0.0223751068115234,
+   "effect_share": -0.0061371494115469,
+   "community_importance": -4.655142784118652,
+   "keystone": false
+  },
+  {
+   "head": "9.0",
+   "class": "backup_name_mover",
+   "abundance": 0.0086569152772426,
+   "direct_effect": 0.0932408794760704,
+   "total_effect": -0.0207343101501464,
+   "effect_share": -0.0056871039950195,
+   "community_importance": -0.6569435000419617,
+   "keystone": false
+  },
+  {
+   "head": "9.1",
+   "class": "",
+   "abundance": 9.124179632635788e-05,
+   "direct_effect": -0.0009827363537624,
+   "total_effect": -0.0034976005554199,
+   "effect_share": -0.0009593383116038,
+   "community_importance": -10.514242172241213,
+   "keystone": false
+  },
+  {
+   "head": "9.2",
+   "class": "",
+   "abundance": 0.0046012527309358,
+   "direct_effect": 0.0495586283504962,
+   "total_effect": -0.0081701278686523,
+   "effect_share": -0.0022409410539904,
+   "community_importance": -0.4870284795761108,
+   "keystone": false
+  },
+  {
+   "head": "9.3",
+   "class": "",
+   "abundance": 0.0009707810822874,
+   "direct_effect": 0.0104559734463691,
+   "total_effect": 0.1256539821624755,
+   "effect_share": 0.034464964533256,
+   "community_importance": 35.50230026245117,
+   "keystone": false
+  },
+  {
+   "head": "9.4",
+   "class": "",
+   "abundance": 0.0022171579767018,
+   "direct_effect": -0.0238803029060363,
+   "total_effect": -0.0764632225036621,
+   "effect_share": -0.020972691882376,
+   "community_importance": -9.459267616271973,
+   "keystone": false
+  },
+  {
+   "head": "9.5",
+   "class": "",
+   "abundance": 0.0036275582388043,
+   "direct_effect": 0.0390712730586528,
+   "total_effect": 0.0512056350708007,
+   "effect_share": 0.0140449221444971,
+   "community_importance": 3.871728897094727,
+   "keystone": false
+  },
+  {
+   "head": "9.6",
+   "class": "name_mover",
+   "abundance": 0.1132335141301155,
+   "direct_effect": 1.219602108001709,
+   "total_effect": -0.550051212310791,
+   "effect_share": -0.1508706305802002,
+   "community_importance": -1.3323849439620972,
+   "keystone": false
+  },
+  {
+   "head": "9.7",
+   "class": "backup_name_mover",
+   "abundance": 0.006956405006349,
+   "direct_effect": 0.0749252215027809,
+   "total_effect": 0.3432881832122803,
+   "effect_share": 0.0941586956137901,
+   "community_importance": 13.535539627075195,
+   "keystone": true
+  },
+  {
+   "head": "9.8",
+   "class": "",
+   "abundance": 0.000498040462844,
+   "direct_effect": 0.0053642350248992,
+   "total_effect": -0.0200703144073486,
+   "effect_share": -0.005504980123321,
+   "community_importance": -11.053278923034668,
+   "keystone": false
+  },
+  {
+   "head": "9.9",
+   "class": "name_mover",
+   "abundance": 0.2656857967376709,
+   "direct_effect": 2.861617088317871,
+   "total_effect": 0.3258631229400635,
+   "effect_share": 0.0893792682217059,
+   "community_importance": 0.3364096581935882,
+   "keystone": false
+  },
+  {
+   "head": "9.10",
+   "class": "",
+   "abundance": 3.991017365478911e-05,
+   "direct_effect": 0.0004298597632441,
+   "total_effect": 0.0079298019409179,
+   "effect_share": 0.0021750233295121,
+   "community_importance": 54.49796676635742,
+   "keystone": false
+  },
+  {
+   "head": "9.11",
+   "class": "",
+   "abundance": 0.0007025108207017,
+   "direct_effect": -0.0075665204785764,
+   "total_effect": -0.0046277046203613,
+   "effect_share": -0.0012693085636148,
+   "community_importance": -1.8068171739578247,
+   "keystone": false
+  },
+  {
+   "head": "10.0",
+   "class": "name_mover",
+   "abundance": 0.0631102845072746,
+   "direct_effect": 0.6797407865524292,
+   "total_effect": 0.3477675914764404,
+   "effect_share": 0.0953873287561495,
+   "community_importance": 1.5114388465881348,
+   "keystone": false
+  },
+  {
+   "head": "10.1",
+   "class": "backup_name_mover",
+   "abundance": 0.0215695761144161,
+   "direct_effect": 0.23231902718544,
+   "total_effect": 0.0710976123809814,
+   "effect_share": 0.0195009871310029,
+   "community_importance": 0.9040969610214232,
+   "keystone": false
+  },
+  {
+   "head": "10.2",
+   "class": "backup_name_mover",
+   "abundance": 0.0042148842476308,
+   "direct_effect": 0.0453971736133098,
+   "total_effect": 0.0036666393280029,
+   "effect_share": 0.0010057030602695,
+   "community_importance": 0.2386075258255005,
+   "keystone": false
+  },
+  {
+   "head": "10.3",
+   "class": "",
+   "abundance": 0.0020892501343041,
+   "direct_effect": 0.0225026477128267,
+   "total_effect": 0.0012896060943603,
+   "effect_share": 0.0003537192179594,
+   "community_importance": 0.1693043857812881,
+   "keystone": false
+  },
+  {
+   "head": "10.4",
+   "class": "",
+   "abundance": 0.0001048280100803,
+   "direct_effect": -0.0011290691327303,
+   "total_effect": -0.0006272792816162,
+   "effect_share": -0.0001720531082365,
+   "community_importance": -1.641289472579956,
+   "keystone": false
+  },
+  {
+   "head": "10.5",
+   "class": "",
+   "abundance": 9.647486149333416e-05,
+   "direct_effect": 0.0010390999959781,
+   "total_effect": -0.0030462741851806,
+   "effect_share": -0.0008355463945031,
+   "community_importance": -8.660768508911133,
+   "keystone": false
+  },
+  {
+   "head": "10.6",
+   "class": "backup_name_mover",
+   "abundance": 0.0337395817041397,
+   "direct_effect": 0.3633982837200165,
+   "total_effect": 0.2186341285705566,
+   "effect_share": 0.0599679958984527,
+   "community_importance": 1.7773780822753906,
+   "keystone": false
+  },
+  {
+   "head": "10.7",
+   "class": "negative_name_mover",
+   "abundance": 0.1913004070520401,
+   "direct_effect": -2.0604357719421387,
+   "total_effect": -1.6808156967163086,
+   "effect_share": -0.4610220255444261,
+   "community_importance": -2.4099373817443848,
+   "keystone": true
+  },
+  {
+   "head": "10.8",
+   "class": "",
+   "abundance": 6.514533015433699e-05,
+   "direct_effect": -0.0007016595918685,
+   "total_effect": 0.0046122074127197,
+   "effect_share": 0.001265057916699,
+   "community_importance": 19.41901206970215,
+   "keystone": false
+  },
+  {
+   "head": "10.9",
+   "class": "",
+   "abundance": 0.0018208328401669,
+   "direct_effect": -0.0196116100996732,
+   "total_effect": 0.0229864120483398,
+   "effect_share": 0.0063048210837318,
+   "community_importance": 3.4626028537750244,
+   "keystone": false
+  },
+  {
+   "head": "10.10",
+   "class": "backup_name_mover",
+   "abundance": 0.0503226518630981,
+   "direct_effect": 0.5420092344284058,
+   "total_effect": 0.1096229553222656,
+   "effect_share": 0.0300678991798867,
+   "community_importance": 0.5975022912025452,
+   "keystone": false
+  },
+  {
+   "head": "10.11",
+   "class": "",
+   "abundance": 0.0009608790278434,
+   "direct_effect": 0.0103493221104145,
+   "total_effect": 0.0037660598754882,
+   "effect_share": 0.0010329725950984,
+   "community_importance": 1.0750287771224976,
+   "keystone": false
+  },
+  {
+   "head": "11.0",
+   "class": "",
+   "abundance": 0.0014186596963554,
+   "direct_effect": 0.0152799319475889,
+   "total_effect": 0.0241956710815429,
+   "effect_share": 0.0066365023322972,
+   "community_importance": 4.678008556365967,
+   "keystone": false
+  },
+  {
+   "head": "11.1",
+   "class": "",
+   "abundance": 0.0023220407310873,
+   "direct_effect": -0.0250099599361419,
+   "total_effect": -0.023353099822998,
+   "effect_share": -0.0064053979292156,
+   "community_importance": -2.7585208415985107,
+   "keystone": false
+  },
+  {
+   "head": "11.2",
+   "class": "backup_name_mover",
+   "abundance": 0.0290884934365749,
+   "direct_effect": -0.3133029043674469,
+   "total_effect": -0.3314375877380371,
+   "effect_share": -0.0909082586145899,
+   "community_importance": -3.1252310276031494,
+   "keystone": true
+  },
+  {
+   "head": "11.3",
+   "class": "",
+   "abundance": 0.0027315679471939,
+   "direct_effect": 0.0294208489358425,
+   "total_effect": 0.0138392448425292,
+   "effect_share": 0.0037958930903445,
+   "community_importance": 1.389638900756836,
+   "keystone": false
+  },
+  {
+   "head": "11.4",
+   "class": "",
+   "abundance": 0.0001429979311069,
+   "direct_effect": 0.0015401851851493,
+   "total_effect": -0.0032563209533691,
+   "effect_share": -0.0008931590088537,
+   "community_importance": -6.245957374572754,
+   "keystone": false
+  },
+  {
+   "head": "11.5",
+   "class": "",
+   "abundance": 0.0001356731227133,
+   "direct_effect": -0.001461291918531,
+   "total_effect": -0.0010814666748046,
+   "effect_share": -0.0002966297601523,
+   "community_importance": -2.1863560676574707,
+   "keystone": false
+  },
+  {
+   "head": "11.6",
+   "class": "",
+   "abundance": 0.0070945979095995,
+   "direct_effect": -0.0764136537909507,
+   "total_effect": -0.0909235477447509,
+   "effect_share": -0.0249389378221908,
+   "community_importance": -3.5152008533477783,
+   "keystone": false
+  },
+  {
+   "head": "11.7",
+   "class": "",
+   "abundance": 0.0002210104867117,
+   "direct_effect": 0.0023804334923624,
+   "total_effect": 0.0028495788574218,
+   "effect_share": 0.0007815958759569,
+   "community_importance": 3.536465167999268,
+   "keystone": false
+  },
+  {
+   "head": "11.8",
+   "class": "",
+   "abundance": 0.0022563617676496,
+   "direct_effect": 0.0243025533854961,
+   "total_effect": 0.0203189849853515,
+   "effect_share": 0.005573186657677,
+   "community_importance": 2.4699881076812744,
+   "keystone": false
+  },
+  {
+   "head": "11.9",
+   "class": "backup_name_mover",
+   "abundance": 8.384853572351858e-05,
+   "direct_effect": 0.000903105828911,
+   "total_effect": 0.021289587020874,
+   "effect_share": 0.0058394079437397,
+   "community_importance": 69.642333984375,
+   "keystone": false
+  },
+  {
+   "head": "11.10",
+   "class": "negative_name_mover",
+   "abundance": 0.0946509838104248,
+   "direct_effect": -1.0194555521011353,
+   "total_effect": -1.0452117919921875,
+   "effect_share": -0.2866856005739027,
+   "community_importance": -3.0288705825805664,
+   "keystone": true
+  },
+  {
+   "head": "11.11",
+   "class": "",
+   "abundance": 0.0012694753240793,
+   "direct_effect": 0.0136731145903468,
+   "total_effect": -0.0043721199035644,
+   "effect_share": -0.0011992055867887,
+   "community_importance": -0.944646656513214,
+   "keystone": false
+  }
+ ],
+ "interaction_largest": [
+  {
+   "removed": "9.9",
+   "responding": "10.7",
+   "delta_de": 1.2271322011947632
+  },
+  {
+   "removed": "8.6",
+   "responding": "9.9",
+   "delta_de": -1.2098772525787354
+  },
+  {
+   "removed": "8.6",
+   "responding": "10.7",
+   "delta_de": 0.6971967220306396
+  },
+  {
+   "removed": "5.5",
+   "responding": "9.9",
+   "delta_de": -0.633289098739624
+  },
+  {
+   "removed": "10.7",
+   "responding": "11.10",
+   "delta_de": -0.5879623889923096
+  },
+  {
+   "removed": "8.6",
+   "responding": "9.6",
+   "delta_de": -0.567303478717804
+  },
+  {
+   "removed": "9.6",
+   "responding": "10.7",
+   "delta_de": 0.5260666608810425
+  },
+  {
+   "removed": "9.6",
+   "responding": "10.0",
+   "delta_de": 0.502223014831543
+  },
+  {
+   "removed": "7.9",
+   "responding": "9.9",
+   "delta_de": -0.5004644393920898
+  },
+  {
+   "removed": "8.10",
+   "responding": "9.9",
+   "delta_de": -0.5003762245178223
+  },
+  {
+   "removed": "8.6",
+   "responding": "11.10",
+   "delta_de": 0.49100953340530396
+  },
+  {
+   "removed": "8.10",
+   "responding": "10.7",
+   "delta_de": 0.4603639841079712
+  },
+  {
+   "removed": "5.5",
+   "responding": "10.7",
+   "delta_de": 0.4268573522567749
+  },
+  {
+   "removed": "9.9",
+   "responding": "10.10",
+   "delta_de": 0.41131412982940674
+  },
+  {
+   "removed": "5.5",
+   "responding": "9.6",
+   "delta_de": -0.36492419242858887
+  }
+ ],
+ "attenuation": [
+  {
+   "removed": "L1 previous-token",
+   "next": "L2 duplicate + induction",
+   "after_next": "L3 S-inhibition",
+   "lrr_next": 0.10265065729618073,
+   "lrr_after_next": 0.02593565732240677,
+   "difference": [
+    0.07671499997377396,
+    0.07268670140765607,
+    0.08116425932385027
+   ]
+  },
+  {
+   "removed": "L2 duplicate + induction",
+   "next": "L3 S-inhibition",
+   "after_next": "L4 name mover",
+   "lrr_next": 0.4873390197753906,
+   "lrr_after_next": 0.34294161200523376,
+   "difference": [
+    0.14439740777015686,
+    0.12706984132528304,
+    0.16099243238568306
+   ]
+  },
+  {
+   "removed": "L3 S-inhibition",
+   "next": "L4 name mover",
+   "after_next": "L5 negative name mover",
+   "lrr_next": 0.23718051612377167,
+   "lrr_after_next": 0.21081537008285522,
+   "difference": [
+    0.026365146040916443,
+    0.015524429455399513,
+    0.04042659327387807
+   ]
+  }
+ ],
+ "compensation_by_model": [
+  {
+   "model": "GPT-2 small",
+   "top_heads": "9.9, 9.6, 10.0",
+   "ld_mean": 3.645846366882324,
+   "acc": 0.99,
+   "de_removed": 4.760959625244141,
+   "te": -0.1995037943124771,
+   "compensation": [
+    1.041904091835022,
+    1.0232828229665756,
+    1.0608839064836502
+   ],
+   "ln_share": [
+    0.058196693658828735,
+    0.05553045542910695,
+    0.06085445173084736
+   ]
+  },
+  {
+   "model": "GPT-2 medium",
+   "top_heads": "19.1, 15.14, 20.6",
+   "ld_mean": 3.8705151081085205,
+   "acc": 1.0,
+   "de_removed": 1.6817004680633545,
+   "te": 1.5840200185775757,
+   "compensation": [
+    0.058084309101104736,
+    0.040544693171977994,
+    0.07627162784337997
+   ],
+   "ln_share": [
+    0.23018409311771393,
+    0.17328521572053432,
+    0.33498222231864927
+   ]
+  },
+  {
+   "model": "Pythia-160M",
+   "top_heads": "8.9, 8.10, 8.2",
+   "ld_mean": 3.9884440898895264,
+   "acc": 0.9783333333333334,
+   "de_removed": 3.106520652770996,
+   "te": 2.2701005935668945,
+   "compensation": [
+    0.26924657821655273,
+    0.24104338884353638,
+    0.2947953909635544
+   ],
+   "ln_share": [
+    0.14484354853630066,
+    0.13211517333984374,
+    0.1600485272705555
+   ]
+  },
+  {
+   "model": "Pythia-410M",
+   "top_heads": "11.4, 18.8, 17.10",
+   "ld_mean": 3.377790927886963,
+   "acc": 1.0,
+   "de_removed": 2.0859134197235107,
+   "te": 1.2276339530944824,
+   "compensation": [
+    0.4114645719528198,
+    0.39149768799543383,
+    0.4319512456655502
+   ],
+   "ln_share": [
+    0.029582463204860687,
+    0.025247457064688207,
+    0.03396093752235174
+   ]
+  },
+  {
+   "model": "Pythia-1.4B",
+   "top_heads": "10.7, 15.15, 13.1",
+   "ld_mean": 3.887526035308838,
+   "acc": 0.9983333333333333,
+   "de_removed": 1.8136625289916992,
+   "te": 1.7977294921875,
+   "compensation": [
+    0.008785009384155273,
+    -0.02281181514263153,
+    0.037246201932430265
+   ],
+   "ln_share": [
+    1.0566067695617676,
+    -7.769196224212647,
+    8.208235979080174
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "step": 1000,
+   "passes_gate": false,
+   "ld_mean": -0.2280820906162262,
+   "acc": 0.4066666666666667,
+   "top_heads": "5.2, 7.2, 11.10",
+   "de_removed": 0.0036333033349364996,
+   "compensation": [
+    -0.8911963701248169,
+    -12.438756918907165,
+    10.44317400455465
+   ]
+  },
+  {
+   "step": 2000,
+   "passes_gate": false,
+   "ld_mean": -0.17240019142627716,
+   "acc": 0.47333333333333333,
+   "top_heads": "11.4, 12.0, 7.2",
+   "de_removed": 0.16750778257846832,
+   "compensation": [
+    -1.0293526649475098,
+    -1.0965843439102172,
+    -0.9618690848350525
+   ]
+  },
+  {
+   "step": 4000,
+   "passes_gate": true,
+   "ld_mean": 1.5506845712661743,
+   "acc": 0.8283333333333334,
+   "top_heads": "11.4, 13.5, 12.0",
+   "de_removed": 1.2476104497909546,
+   "compensation": [
+    -0.8698592185974121,
+    -0.9001701027154922,
+    -0.8388870149850846
+   ]
+  },
+  {
+   "step": 8000,
+   "passes_gate": true,
+   "ld_mean": 3.8967626094818115,
+   "acc": 0.9883333333333333,
+   "top_heads": "11.4, 13.5, 17.6",
+   "de_removed": 2.427621841430664,
+   "compensation": [
+    -0.4173387289047241,
+    -0.4435105472803116,
+    -0.3936743140220642
+   ]
+  },
+  {
+   "step": 16000,
+   "passes_gate": true,
+   "ld_mean": 3.2724685668945312,
+   "acc": 0.9816666666666667,
+   "top_heads": "11.4, 13.5, 17.6",
+   "de_removed": 2.286172389984131,
+   "compensation": [
+    0.057480692863464355,
+    0.035365885496139525,
+    0.07873380631208417
+   ]
+  },
+  {
+   "step": 32000,
+   "passes_gate": true,
+   "ld_mean": 3.1302993297576904,
+   "acc": 0.9933333333333333,
+   "top_heads": "11.4, 13.5, 17.6",
+   "de_removed": 2.423257827758789,
+   "compensation": [
+    0.3669658899307251,
+    0.34748341590166093,
+    0.3857488095760345
+   ]
+  },
+  {
+   "step": 48000,
+   "passes_gate": true,
+   "ld_mean": 3.4382548332214355,
+   "acc": 0.9983333333333333,
+   "top_heads": "11.4, 17.6, 13.5",
+   "de_removed": 2.333400011062622,
+   "compensation": [
+    0.28051018714904785,
+    0.2583389401435852,
+    0.30097907483577724
+   ]
+  },
+  {
+   "step": 64000,
+   "passes_gate": true,
+   "ld_mean": 3.270298957824707,
+   "acc": 0.9983333333333333,
+   "top_heads": "11.4, 18.8, 17.10",
+   "de_removed": 1.9672865867614746,
+   "compensation": [
+    0.3789605498313904,
+    0.35865720063447953,
+    0.3992175057530403
+   ]
+  },
+  {
+   "step": 96000,
+   "passes_gate": true,
+   "ld_mean": 3.4033925533294678,
+   "acc": 1.0,
+   "top_heads": "11.4, 18.8, 17.10",
+   "de_removed": 2.139817953109741,
+   "compensation": [
+    0.4326656460762024,
+    0.41425537019968034,
+    0.45083547979593275
+   ]
+  },
+  {
+   "step": 128000,
+   "passes_gate": true,
+   "ld_mean": 3.3591995239257812,
+   "acc": 1.0,
+   "top_heads": "11.4, 18.8, 17.10",
+   "de_removed": 2.20231556892395,
+   "compensation": [
+    0.42879146337509155,
+    0.40929499715566636,
+    0.44769294559955597
+   ]
+  },
+  {
+   "step": 143000,
+   "passes_gate": true,
+   "ld_mean": 3.377790927886963,
+   "acc": 1.0,
+   "top_heads": "11.4, 18.8, 17.10",
+   "de_removed": 2.0859134197235107,
+   "compensation": [
+    0.4114645719528198,
+    0.39149768799543383,
+    0.4319512456655502
+   ]
+  }
+ ],
+ "checkpoints_spearman": {
+  "rho": 0.9166666666666666,
+  "ci": [
+   0.8833333333333333,
+   0.9333333333333332
+  ],
+  "steps": [
+   4000,
+   8000,
+   16000,
+   32000,
+   48000,
+   64000,
+   96000,
+   128000,
+   143000
+  ]
+ }
+}
