@@ -103,7 +103,16 @@ def partb_html():
         yaxis=dict(title=METRICS[0][1], gridcolor=GRID, showgrid=True, linecolor=INK2,
                    tickcolor=INK2))
     path = FIG / "partb_runs.html"
-    fig.write_html(path, include_plotlyjs="cdn", full_html=True,
+    # On a phone-width page the legend moves below the plot, away from the metric menu.
+    small = {"legend.y": -0.25, "legend.yanchor": "top", "legend.x": 0, "legend.xanchor": "left",
+             "legend.title.text": "", "margin.l": 55, "margin.r": 10, "margin.b": 140}
+    wide = {"legend.y": 1.02, "legend.yanchor": "bottom", "legend.x": 1, "legend.xanchor": "right",
+            "legend.title.text": "click to hide or show: ", "margin.l": 70, "margin.r": 20,
+            "margin.b": 55}
+    script = (f"var gd=document.getElementById('{{plot_id}}');var S={json.dumps(small)},"
+              f"W={json.dumps(wide)};function fit(){{Plotly.relayout(gd,window.innerWidth<600?S:W);}}"
+              "fit();window.addEventListener('resize',fit);")
+    fig.write_html(path, include_plotlyjs="cdn", full_html=True, post_script=script,
                    config={"displaylogo": False, "responsive": True,
                            "modeBarButtonsToRemove": ["select2d", "lasso2d"]})
     # The page is shown in an iframe on the blog: no body margin, and the figures' surface colour.
