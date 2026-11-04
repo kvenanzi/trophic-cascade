@@ -2,6 +2,8 @@
 
     uv run scripts/07_partb_summarize.py --sweep <sweep id>      # from W&B
     uv run scripts/07_partb_summarize.py --local models/          # from history.json files
+    uv run scripts/07_partb_summarize.py --local results/partb    # the committed copy of the
+                                                                  # sweep's measurements
 
 For each seed, the three arms' final pooled self-repair fractions give the contrasts
 standard - none, drophead - standard, drophead - none. H6c compares each dropout run's

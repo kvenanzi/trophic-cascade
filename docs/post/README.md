@@ -2,7 +2,7 @@
 
 | created | modified | status | confidence | importance |
 |---|---|---|---|---|
-| 2026-09-24 | 2026-09-25 | finished | likely[^conf] | 4 |
+| 2026-09-24 | 2026-11-04 | finished | likely[^conf] | 4 |
 
 > **Abstract.** Ecologists measure the structure of a community by removing a species and recording what the others do, and have published measures for the result: interaction strength, the log response ratio, community importance, mesopredator release, and the hydra effect. Interpretability researchers perform the same experiment on transformers, ablating a component and recording what the others do, and have found that later components restore part of what was removed. I apply the ecological measures, as published, to attention heads, under six hypotheses committed before the experiments. In the indirect-object-identification circuit of GPT-2 small, removing the three name-mover heads removes 4.76 units of direct effect and *raises* the logit difference from 3.65 to 3.85 (compensation 1.042, 95% CI 1.023–1.061); eight backup and two negative name movers carry 94.5% of the offset, the pattern ecologists call mesopredator release, and the final LayerNorm 5.8%. Community importance ([Power et al 1996](#references)) identifies all four S-inhibition heads and three induction heads as keystones, heads with almost no direct effect whose removal costs 10–37% of the logit difference, and gives negative values to the heads that consume the quantity measured, including the copy-suppression head 10.7. The response of head activity to a removal attenuates with distance in the circuit in all three steps tested. Across five pretrained models, compensation for the top three heads ranges from 0.009 in Pythia-1.4B (interval including zero, which refutes the registered claim that every competent model compensates) to 1.04; across the training of Pythia-410M it rises (Spearman ρ 0.92) from −0.87 at step 4,000, where a removal costs the model more than the removed heads contributed, to 0.41. To test the conjecture of [Wang et al 2022](#references) that such compensation is caused by dropout, eighteen 30-million-parameter models were trained from scratch on 200 million tokens of TinyStories with no dropout, standard dropout, or head dropout, six seeds each, paired by seed. The pooled self-repair fraction is 0.359, 0.615, and 0.670; standard − none is +0.256 (95% CI 0.231–0.281) and head dropout − standard +0.055 (0.045–0.065), both positive for six of six seeds, and the differences remain (+0.251 and +0.309) when each dropout model is compared with the no-dropout checkpoint of equal validation loss. Dropout is not necessary for self-repair, which reaches 0.36 without it, but it increases it by a factor of 1.7, and head dropout, which removes the same unit the experiment removes, increases it most while costing less validation loss than standard dropout. Limitations: one circuit for the keystone and attenuation results, and one model size, dataset, and dropout rate for the training experiment.
 
@@ -285,6 +285,17 @@ The timing run (§4.4) measured 173,971, 172,450, and 173,219 training tokens pe
 
 *Figure 8. Final pooled self-repair fraction of each of the eighteen models. Grey lines join the three models of one seed, which share initialisation and data order; black bars are the means. Data: `figures/data.json`.*
 
+<!-- qmd
+::: {.column-page-right}
+```{=html}
+<iframe src="figures/partb_runs.html" title="Part B runs, one line per run"
+        loading="lazy" style="border:none;width:100%;height:520px"></iframe>
+```
+:::
+-->
+
+The interactive chart [`figures/partb_runs.html`](figures/partb_runs.html) draws each of the eighteen runs of Figures 7 and 8 as its own line. Its menu switches between pooled and mean self-repair, self-repair in each of the six layers, and validation loss; hovering over a point gives the run's seed and training step, and clicking a regime in the legend hides or shows it.
+
 | Regime | Pooled self-repair, mean (sd, range) | Validation loss, mean (sd) |
 |---|---|---|
 | no dropout | 0.359 (0.032, 0.298–0.388) | 1.6117 (0.0015) |
@@ -358,21 +369,12 @@ The *insurance hypothesis* supplied the one causal prediction, and the predictio
 ## 8. Reproduction
 
 - **Code and data preparation:** [github.com/kvenanzi/trophic-cascade](https://github.com/kvenanzi/trophic-cascade). Numbered scripts take the prompts, models, and TinyStories to every table and figure; `notebooks/01_part_a.ipynb` and `notebooks/02_dropout_sweep.ipynb` run them on Colab. The hypotheses are in commit `cca53fc`, which precedes every registered run.
-- **Every run:** the W&B project [within-noise/trophic-cascade](https://wandb.ai/within-noise/trophic-cascade) holds the Part A runs (reference set on the A100; the local replication tagged `local-gtx1070`), the eighteen Part B runs of sweep `fhuassaa` with their measurement tables and model weights, and the artifacts `gpt2-removals`, `models-*`, `checkpoints-pythia-410m`, and `measurements-*` from which every number here was computed. The [W&B Report](https://wandb.ai/within-noise/trophic-cascade/reports/Trophic-cascades-in-a-transformer--VmlldzoxODAwMjk2OA==) presents them with live panels.
-
-<!-- qmd
-::: {.column-page-right}
-```{=html}
-<iframe src="https://wandb.ai/within-noise/trophic-cascade/reports/Trophic-cascades-in-a-transformer--VmlldzoxODAwMjk2OA=="
-        title="W&B Report: Trophic cascades in a transformer"
-        loading="lazy" style="border:none;width:100%;height:900px"></iframe>
-```
-:::
--->
+- **Every number and figure:** `results/` holds the outputs they were computed from, so no account with an experiment tracker is needed. `results/colab/` has the Part A results (the GPT-2 small removals, the five-model results, the Pythia-410M checkpoint results, and the prompt set), and `results/partb/` has the measurement file of each of the eighteen Part B runs. `uv run scripts/07_partb_summarize.py --local results/partb` reproduces the Part B analysis, and then `uv run scripts/08_figures.py` reproduces every figure and `figures/data.json`.
+- **Every run:** [`figures/runs.json`](figures/runs.json) lists all 46 runs of the project with their configuration and final metrics: the Part A reference runs on the A100, the local replication (tagged `local-gtx1070`), the checkpoint runs, and the eighteen Part B runs of sweep `fhuassaa`. The runs were tracked in Weights & Biases (project `within-noise/trophic-cascade`), and these records were exported from it on 2026-11-04. The trained Part B model weights (eighteen files of 120 MB) are not published.
 
 ## Appendix A: Experiment log
 
-All work was done on 2026-09-24 and 2026-09-25. Times are US Central; run identifiers are W&B run IDs in `within-noise/trophic-cascade`.
+All work was done on 2026-09-24 and 2026-09-25. Times are US Central; run identifiers are the W&B run IDs listed in `figures/runs.json`.
 
 - **Scaffold** (commit `dd89807`, 17:13). Prompt generator, removal runner, ecological measures, and unit tests, including one that checks the per-component direct effects sum to the logit difference.
 - **Reproduction check** (before 17:17). GPT-2 small's baseline on an earlier draft of the prompt set, whose ABC twins kept the first-clause names. Mean-ablating the name movers raised the logit difference from 3.65 to 3.85. This is the one observation that preceded the registration; the ABC prompts were then changed to replace all three names, as Wang et al do.

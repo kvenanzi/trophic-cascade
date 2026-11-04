@@ -1,10 +1,10 @@
 """Figures for docs/post/ from the Colab reference artifacts, and figures/data.json with
 every plotted number.
 
-    uv run scripts/08_figures.py [--src outputs/colab] [--only partA|partB]
+    uv run scripts/08_figures.py [--src results/colab] [--only partA|partB]
 
-Part A reads the W&B artifacts downloaded to outputs/colab/ (gpt2-removals, models-*,
-checkpoints-pythia-410m); Part B reads outputs/partb/summary.json from
+Part A reads the W&B artifacts gpt2-removals, models-* and checkpoints-pythia-410m, a copy of
+which is committed in results/colab/ (outputs/colab/ when downloaded from W&B); Part B reads outputs/partb/summary.json from
 07_partb_summarize.py. Colours follow the dataviz reference palette: three categorical
 slots at most on a scatter, one hue per single-series chart, blue-grey-red diverging.
 """
@@ -248,7 +248,7 @@ def part_b(data: dict):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--src", default="outputs/colab")
+    ap.add_argument("--src", default="results/colab")
     ap.add_argument("--only", choices=["partA", "partB"])
     args = ap.parse_args()
     path = FIG / "data.json"
