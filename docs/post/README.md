@@ -294,7 +294,7 @@ The timing run (§4.4) measured 173,971, 172,450, and 173,219 training tokens pe
 :::
 -->
 
-The interactive chart [`figures/partb_runs.html`](figures/partb_runs.html) draws each of the eighteen runs of Figures 7 and 8 as its own line. Its menu switches between pooled and mean self-repair, self-repair in each of the six layers, and validation loss; hovering over a point gives the run's seed and training step, and clicking a regime in the legend hides or shows it.
+The interactive chart [`figures/partb_runs.html`](figures/partb_runs.html) draws each of the eighteen runs of Figures 7 and 8 as its own line. Its menu switches between pooled and mean self-repair, self-repair in each of the six layers, validation loss, and training loss. The training loss is the loss of one batch, logged every 50 steps with the run's dropout active, so unlike the validation loss, which is measured with dropout off, it does not compare the regimes on equal terms. Hovering over a point gives the run's seed and training step, and clicking a regime in the legend hides or shows it.
 
 | Regime | Pooled self-repair, mean (sd, range) | Validation loss, mean (sd) |
 |---|---|---|
@@ -369,7 +369,7 @@ The *insurance hypothesis* supplied the one causal prediction, and the predictio
 ## 8. Reproduction
 
 - **Code and data preparation:** [github.com/kvenanzi/trophic-cascade](https://github.com/kvenanzi/trophic-cascade). Numbered scripts take the prompts, models, and TinyStories to every table and figure; `notebooks/01_part_a.ipynb` and `notebooks/02_dropout_sweep.ipynb` run them on Colab. The hypotheses are in commit `cca53fc`, which precedes every registered run.
-- **Every number and figure:** `results/` holds the outputs they were computed from, so no account with an experiment tracker is needed. `results/colab/` has the Part A results (the GPT-2 small removals, the five-model results, the Pythia-410M checkpoint results, and the prompt set), and `results/partb/` has the measurement file of each of the eighteen Part B runs. `uv run scripts/07_partb_summarize.py --local results/partb` reproduces the Part B analysis, and then `uv run scripts/08_figures.py` reproduces every figure and `figures/data.json`.
+- **Every number and figure:** `results/` holds the outputs they were computed from, so no account with an experiment tracker is needed. `results/colab/` has the Part A results (the GPT-2 small removals, the five-model results, the Pythia-410M checkpoint results, and the prompt set), and `results/partb/` has the measurement file and the training-loss log of each of the eighteen Part B runs. `uv run scripts/07_partb_summarize.py --local results/partb` reproduces the Part B analysis, and then `uv run scripts/08_figures.py` reproduces every figure and `figures/data.json`.
 - **Every run:** [`figures/runs.json`](figures/runs.json) lists all 46 runs of the project with their configuration and final metrics: the Part A reference runs on the A100, the local replication (tagged `local-gtx1070`), the checkpoint runs, and the eighteen Part B runs of sweep `fhuassaa`. The runs were tracked in Weights & Biases (project `within-noise/trophic-cascade`), and these records were exported from it on 2026-11-04. The eighteen trained Part B models (120 MB each) are on Hugging Face at [kvenanzi/trophic-cascade-partb](https://huggingface.co/kvenanzi/trophic-cascade-partb), one folder per regime and seed.
 
 ## Appendix A: Experiment log

@@ -11,6 +11,8 @@ Writes:
                                       state, sweep, tags, created time, config, final summary.
                                       Built from the local W&B export (wandb_export.py); skipped
                                       when the export is not present.
+  results/partb/<run>/train.json      each Part B run's training loss (one batch every 50 steps,
+                                      dropout active), from the export; committed
   docs/post/figures/partb_runs.html   the eighteen Part B runs, one line each, with a metric
                                       selector. Built from results/partb/, which is committed.
 """
@@ -29,7 +31,9 @@ ARMS = {"none": ("no dropout", "#b4b2ab"), "standard": ("standard dropout", "#2a
 METRICS = [("self_repair_pooled", "pooled self-repair fraction"),
            ("self_repair_mean", "mean self-repair fraction (per head)")] + [
           (f"self_repair_layer{i}", f"self-repair fraction, layer {i}") for i in range(6)] + [
-          ("val_loss", "validation loss")]
+          ("val_loss", "validation loss"),
+          ("train_loss", "training loss (one batch, dropout active)")]
+PARTB_SWEEP, TOKENS_PER_STEP = "fhuassaa", 128 * 256
 # Summary keys that are W&B bookkeeping or references to files, not results.
 DROP_SUMMARY = ("_wandb", "_runtime", "_timestamp", "_step")
 
@@ -65,31 +69,55 @@ def runs_json(export: Path):
     print("wrote", FIG / "runs.json", f"({len(out)} runs)")
 
 
+def train_logs(export: Path):
+    """The training-loss series of each Part B run, which only the W&B history holds."""
+    for row in json.loads((export / "runs.json").read_text()):
+        if row["sweep"] != PARTB_SWEEP:
+            continue
+        hist = json.loads((export / "runs" / row["id"] / "history.json").read_text())
+        rows = [{"step": h["_step"], "tokens": h["_step"] * TOKENS_PER_STEP,
+                 "loss": round(h["train/loss"], 5), "lr": h["train/lr"]}
+                for h in hist if h.get("train/loss") is not None]
+        dest = Path("results/partb") / row["name"] / "train.json"
+        assert dest.parent.exists(), dest
+        dest.write_text(json.dumps({"run": row["id"], "note": "loss of one training batch, logged "
+                                    "every 50 steps, with the run's dropout active",
+                                    "rows": rows}, indent=1))
+    print("wrote results/partb/*/train.json")
+
+
 def partb_html():
     runs = []
     for f in sorted(Path("results/partb").glob("*/history.json")):
         d = json.loads(f.read_text())
-        runs.append((d["config"]["arm"], d["config"]["seed"], d["history"]))
+        tf = f.with_name("train.json")
+        train = json.loads(tf.read_text())["rows"] if tf.exists() else []
+        runs.append((d["config"]["arm"], d["config"]["seed"], d["history"], train))
     runs.sort(key=lambda r: (list(ARMS).index(r[0]), r[1]))
 
     fig = go.Figure()
-    for arm, seed, hist in runs:
+    for arm, seed, hist, train in runs:
         label, colour = ARMS[arm]
-        x = [h["tokens"] / 1e6 for h in hist]
         for j, (key, name) in enumerate(METRICS):
+            pts = [dict(h, train_loss=h["loss"]) for h in train] if key == "train_loss" else hist
             fig.add_trace(go.Scatter(
-                x=x, y=[h[key] for h in hist], mode="lines+markers", visible=(j == 0),
+                x=[h["tokens"] / 1e6 for h in pts], y=[h[key] for h in pts],
+                mode="lines" if key == "train_loss" else "lines+markers", visible=(j == 0),
                 name=label, legendgroup=arm, showlegend=(seed == 0),
-                line=dict(color=colour, width=1.6), marker=dict(size=5), opacity=0.85,
-                customdata=[[seed, h["step"]] for h in hist],
+                line=dict(color=colour, width=1.2 if key == "train_loss" else 1.6),
+                marker=dict(size=5), opacity=0.85,
+                customdata=[[seed, h["step"]] for h in pts],
                 hovertemplate=f"{label}, seed %{{customdata[0]}}<br>"
                               "%{x:.0f}M tokens (step %{customdata[1]})<br>"
                               f"{name}: %{{y:.4f}}<extra></extra>"))
     n = len(METRICS)
     buttons = [dict(label=name, method="update",
                     args=[{"visible": [i % n == j for i in range(len(runs) * n)]},
-                          {"yaxis.title.text": name}])
-               for j, (_, name) in enumerate(METRICS)]
+                          {"yaxis.title.text": name} | (
+                              # The first steps' loss (10.8 at step 0) would flatten the rest.
+                              {"yaxis.range": [1.4, 3.0], "yaxis.autorange": False}
+                              if key == "train_loss" else {"yaxis.autorange": True})])
+               for j, (key, name) in enumerate(METRICS)]
     fig.update_layout(
         template="simple_white", paper_bgcolor=SURFACE, plot_bgcolor=SURFACE,
         font=dict(family="system-ui, -apple-system, Segoe UI, sans-serif", size=13, color=INK),
@@ -129,6 +157,7 @@ def main():
     FIG.mkdir(parents=True, exist_ok=True)
     if (args.export / "runs.json").exists():
         runs_json(args.export)
+        train_logs(args.export)
     else:
         print(f"no export at {args.export}; runs.json left as it is")
     partb_html()
