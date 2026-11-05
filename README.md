@@ -65,14 +65,16 @@ python scripts/06_sweep.py --create --tokens <budget>
 #   then wandb.agent(...) in the notebook: 3 regimes x 6 seeds
 
 # Analysis and write-up (local)
-uv run scripts/07_partb_summarize.py --sweep fhuassaa   # H6, H6c -> outputs/partb/
-uv run scripts/08_figures.py                            # docs/post/figures/ (needs outputs/colab/)
-uv run scripts/09_report.py --url <report url>          # rebuild the W&B Report in place
+uv run scripts/07_partb_summarize.py --local results/partb   # H6, H6c -> outputs/partb/
+uv run scripts/08_figures.py                                 # docs/post/figures/ from results/colab/
+uv run scripts/10_post_runs.py                               # docs/post/figures/runs.json, partb_runs.html
 ```
 
-`scripts/08_figures.py` reads the Part A artifacts downloaded from W&B into
-`outputs/colab/<artifact name>/` (for example `gpt2-removals`, `models-pythia-410m`,
-`checkpoints-pythia-410m`).
+`results/` holds the committed outputs every figure is computed from: the Part A artifacts in
+`results/colab/<artifact name>/` and the measurement history of each Part B run in
+`results/partb/<regime>-s<seed>/`. The runs were tracked in W&B, which is no longer used; its
+export is in the gitignored `wandb-export/`, and only `10_post_runs.py` reads it. The eighteen trained Part B models are on Hugging Face
+at [kvenanzi/trophic-cascade-partb](https://huggingface.co/kvenanzi/trophic-cascade-partb).
 
 TransformerLens is pinned below 4.0, which removed `HookedTransformer`. Models above
 about 500M parameters do not fit in the local machine's memory; run them on Colab.
