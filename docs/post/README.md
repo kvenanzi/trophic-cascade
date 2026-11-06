@@ -371,7 +371,7 @@ Spearman ρ over the nine checkpoints that pass the gate is 0.92 (95% CI 0.88–
 
 I chose the question, set the rules, and edited the text. Claude Code wrote the code, ran the analysis, found the references, and drafted the post.
 
-I am not an ecologist or a machine-learning researcher. The parts of this post that may look formal, such as writing the hypotheses down before running the experiments and reporting every result including the ones that failed, are how I check work I could not have produced alone. I have not read the cited papers myself. Claude checked each citation against its source: against the full text where an open copy existed, against the abstract for Estes & Palmisano 1974, Paine 1992 and Hedges et al 1999, and against a published Spanish translation for Odum 1969. Sentences the sources did not fully support were narrowed or removed.
+I have not read the cited papers myself. Claude checked each citation against its source: against the full text where an open copy existed, against the abstract for Estes & Palmisano 1974, Paine 1992 and Hedges et al 1999, and against a published Spanish translation for Odum 1969. Sentences the sources did not fully support were narrowed or removed.
 
 ## References
 
