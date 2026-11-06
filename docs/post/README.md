@@ -8,7 +8,6 @@ description: "What ecology's removal-experiment measures find in GPT-2's attenti
 
 *Measures that ecologists use for species-removal experiments, applied to the attention heads of GPT-2 and four other language models, and eighteen small models trained from scratch to test whether dropout is what makes a transformer repair itself.*
 
-*Kevin Venanzi · first published 24 September 2026 · rewritten 6 November 2026*
 
 Ecologists learn how a community of plants and animals fits together by removing one species and recording what happens to the others. Removing a predator changes the animals it eats, and through them the plants those animals eat; ecologists call this chain of effects a *trophic cascade* ("trophic" means to do with feeding). People who study how language models work run the same kind of experiment. The models here are *transformers*, built in layers, and each layer contains several *attention heads*: small units that each choose which earlier words in the text to draw information from and pass what they find on to later layers. Switching one head off and measuring how the model's output changes is called *ablation*. When a head is ablated, other heads often make up for part of what it did.
 
